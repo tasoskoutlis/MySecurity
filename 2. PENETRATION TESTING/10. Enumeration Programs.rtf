@@ -1,0 +1,183 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red54\green51\blue50;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww13560\viewh11820\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\b\fs24 \cf0 \ul \ulc0 Default Passwords
+\b0 \ulnone \
+\
+Search online for sites that have default passwords of systems.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul GetAcct
+\b0 \ulnone \
+\
+Give IP Address of Target and the number of the users (RID).\
+It is a program that finds the computer\'92s users accounts.\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul nbtstat\
+\pard\pardeftab720
+
+\f1\b0\fs32 \cf2 \expnd0\expndtw0\kerning0
+\ulnone \
+\pard\pardeftab720
+\cf2 \expnd0\expndtw0\kerning0
+nbtStat gives you protocol statistics with IP connectivity information.\'a0 This is a tool that runs on a remote target and allows you to view the Host Protocols ID, its remote machines name table data and MAC addresse\expnd0\expndtw0\kerning0
+s.
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+nbtstat -A 192.168.110.1  \
+nbtstat -c 192.168.110.1  \'97 Cache\
+nbtstat -n 192.168.110.1  \'97 List Local NetBIOS Names\
+nbtstat -r 192.168.110.1   \'97 Lists names resolved \
+nbtstat -s 192.168.110.1  \'97 For Sessions\
+\
+NetBIOS Remote Machine Name Table  \'97 Provides information about the NetBIOS Table\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 \ul \ulc0 NetUse
+\b0 \ulnone \
+\
+\pard\pardeftab720
+
+\f1\fs32 \cf2 \expnd0\expndtw0\kerning0
+NetUse is a command line enumeration tool that displays information on your networks responses.\expnd0\expndtw0\kerning0
+\
+\expnd0\expndtw0\kerning0
+NetUse tells you everything from IP address, to network, drive name and resource availability.\'a0 You can also even view or target local and remote networks for a broad enumeration effort.
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+net use \\\\192.168.110.1\\IPC$ /u:\'94\'94 \'93\'94		\'97 Trick Computer that you are Admin. The IPC$ is the vulnerability\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 \ul \ulc0 Null Session
+\b0 \ulnone \
+\
+\pard\pardeftab720
+
+\f1\fs32 \cf2 \expnd0\expndtw0\kerning0
+Null Session is a Windows enumeration tool that maps a drive. Null Session\'a0can be used to trick the computer into thinking it\'92s connected to a network when it\'92s actually connected to an unauthorized user. This lab will outline how to use Null Session when pen testing.
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+net use \\\\192.168.110.1\\IPC$ /u:\'94\'94 \'93\'94\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 \ul \ulc0 netDiscover
+\b0 \ulnone \
+\pard\pardeftab720
+
+\f1\fs32 \cf2 \expnd0\expndtw0\kerning0
+(Kali Linux)\
+\
+\pard\pardeftab720
+\cf2 \expnd0\expndtw0\kerning0
+This Enumeration lab introduces netDiscover, a\'a0scanning tool that uses the Ethernet interface to sniff the default network. In this video, you\'92ll learn how to generate traffic with a flooding tool to Id vulnerabilities such as host responding to a flood attack.
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+netdiscover -i eth0	\'97 -i is the Ethernet Interface\
+\
+	Use with macof to find the MAC Addresses, etc.\
+	Interrogates Layer 2 and Layer 3 information from the network\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 \ul \ulc0 macof 
+\b0 \ulnone \
+\
+macof -h \'97 it is a Flooding tool  ARP\
+macof -i eth0 -n 10\
+\
+Use it to find MAC Addresses\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul \ulc0 smbclient\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b0 \cf0 \ulnone (Kali Linux)\
+\
+\pard\pardeftab720
+
+\f1\fs32 \cf2 \expnd0\expndtw0\kerning0
+SMB Client is the Linux version of netUse. It however, requires the domain name to execute a null session then logs in without authentication.\expnd0\expndtw0\kerning0
+\
+\expnd0\expndtw0\kerning0
+This Enumeration lab introduces netDiscover, a\'a0scanning tool that uses the Ethernet interface to sniff the default network.\
+\
+smbclient -I 192.168.110.1 -N -U   \'97>  No password, no username\
+\pard\pardeftab720
+\cf2 \expnd0\expndtw0\kerning0
+smbclient -I 192.168.110.1 -R virnet.com -N -U   \'97> Name resolve\
+smbclient -I 192.168.110.1 -L virnet.com -N -U   \'97>  Domain to interrogate\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 \ul \ulc0 SuperScan\
+\pard\pardeftab720
+
+\f1\b0\fs32 \cf2 \expnd0\expndtw0\kerning0
+\ulnone \
+
+\b SOS
+\b0  \
+\
+\pard\pardeftab720
+\cf2 \expnd0\expndtw0\kerning0
+This lab covers SuperScan Windows program, an IP scanning tool that provides extensive port information, live host and live, real-time output values. \'a0SuperScan also details hostname, naming conventions, and an extensive mapping of the targeted IP address.\
+\
+Scan, Banner grabbing, Enumeration \'85 a lot!!!\expnd0\expndtw0\kerning0
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 \ul \ulc0 PsTools\
+\pard\pardeftab720
+
+\f1\b0\fs32 \cf2 \expnd0\expndtw0\kerning0
+\ulnone \
+This Enumeration lab introduces us to PsTools. \'a0This lab demonstrates how to use PS Tools to analyze specific data components on a network. PsTools analyzes individual files, ID\'92s, passwords on both the local PC and/or the targeted network/IP.\expnd0\expndtw0\kerning0
+\
+\expnd0\expndtw0\kerning0
+The PsTool program\'a0is useful for tracing a Trojan, because it allows you to\'a0determine the most recent service or patch updates from viewing its\'a0output list of system services by\'a0their \'93real time\'94 date stamps.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+psgetsid \'97 Translates SIDs to names and vice versa\
+psfile.exe \\\\192.168.110.1  \'97 Local and remote network file listener\
+psinfo 192.168.110.1 \'97 Local and remote system information viewer\
+pslist 192.168.110.1 \'97 Process Information Listener  \'97 Useful for Trojan Analysis \
+psservice.exe \\\\192.168.110.1  \'97 Local services vs Remote services\
+pskill -u -p   \'97 Use pslist to see processes to kill\
+psshutdown  -u -p \\\\192.168.110.1 -r \'97 Shutdown, logoff and power manage local and remote systems\
+\
+\
+with >> file.txt you can save results to file\
+with /? help file\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\
+}

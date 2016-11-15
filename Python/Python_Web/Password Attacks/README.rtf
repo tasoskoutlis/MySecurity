@@ -1,0 +1,63 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww18080\viewh10460\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs32 \cf0 \ul \ulc0 back2basics\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b0 \cf0 \ulnone \
+Brute force a basic authentication form.\
+\
+	python back2basics.py -w http://../Admin -u admin -t 5 -f past.txt\
+\
+			-w is the url\
+			-t is the number of threads\
+			-f is passwords filename\
+			-u is the username to attack\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b \cf0 \ul back2digest\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b0 \cf0 \ulnone \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Brute force a digest authentication form. (It uses MD5 hash of username/password + a nonce)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+	python back2digest.py -w http://../Admin -u admin -t 5 -f past.txt -m digest\
+\
+			-w is the url\
+			-t is the number of threads\
+			-f is passwords filename\
+			-u is the username to attack\
+			-m choose method basic or digest\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b \cf0 \ul back2forms\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b0 \cf0 \ulnone \
+Brute force form based Authentication.\
+\
+	python back2forms.py -w http://../Admin -t 5 -f past.txt -m forms -p \'93username=moBot6&password=FUZZ\'94\
+\
+			-w is the url\
+			-t is the number of threads\
+			-f is passwords filename\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 			-m choose method basic or digest or forms\
+			-p enter the payload (e.x. -p \'93username=moBot6&password=FUZZ\'94 it will brute force the FUZZ keyword)\
+\
+You have to check the form you are attacking to see the names of the input tags and replace them in the payload!!\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+}
