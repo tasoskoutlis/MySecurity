@@ -1,0 +1,7 @@
+1. http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+
+2. https://websec.wordpress.com/2010/12/04/sqli-filter-evasion-cheat-sheet-mysql/
+
+3. http://kaoticcreations.blogspot.co.uk/p/blind-time-based-sql-injections.html
+
+4. http://kaoticcreations.blogspot.co.uk/p/basic-sql-injection-101.html
