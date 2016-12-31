@@ -1,0 +1,97 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red54\green51\blue50;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww13560\viewh4960\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\b\fs24 \cf0 \ul \ulc0 fport Program
+\b0 \ulnone \
+\
+Loads the Processes and the Ports they use that exist in the system.\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul icmpsrv Program
+\b0 \ulnone \
+\
+\pard\pardeftab720
+
+\f1\fs32 \cf2 \expnd0\expndtw0\kerning0
+ICMP is a tunnel command application with both client (icmpsend) and server (icmpsrv) level options for obtaining client and server usage info. \
+You\'92ll learn how to install, configure, run and remove the service (if you need).\
+ICMP\'92s sole\'a0purpose is to validate the traffic link between those targeted nodes on the network.
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+icmpsrv -install\
+icmpsend 192.168.110.1\
+\
+So set up a listener to the server then connect to the server from the client and tell it to sent back and forth.\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul netStat
+\b0 \ulnone \
+\
+\pard\pardeftab720
+
+\f1\fs32 \cf2 \expnd0\expndtw0\kerning0
+netStat is a run line command that displays protocol stats and the current TCP/IP connections.\'a0 Each version of netStat is syntax specific, so this Trojan lab demonstrates some of those syntax variations from one version of netStat to another.
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+-a  Displays all connections and listening ports\
+-e  Displays Ethernet stats\
+-n  Displays addresses and port numbers\
+-o  Displays owning process ID associated with each connection\
+-r   Displays routing table\
+-s  Displays per-protocol stats\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul PrcView
+\b0 \ulnone \
+\
+\pard\pardeftab720
+
+\f1\fs32 \cf2 \expnd0\expndtw0\kerning0
+PrcView is a process-focused forensic analysis and Trojan reconnaissance tool.\'a0 Its output displays process by name, ID, priority and path/location, key information you\'92ll need in conducting Trojan reconnaissance.
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul TcpView
+\b0 \ulnone \
+\
+\pard\pardeftab720
+
+\f1\fs32 \cf2 \expnd0\expndtw0\kerning0
+The TcpView utility displays \'93EACH\'94 process, and\'a0it does so sorted by protocol. \'a0More importantly, TCPView\'a0provides the local and remote port address, and the status \'93IN REAL TIME\'94 of each process. Real time status of system process offer a great advantage to determining how quickly your response time must be in\'a0identifying and locating Troja\cf2 \expnd0\expndtw0\kerning0
+ns.
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul Tini (Good in Trojan)
+\b0 \ulnone \
+\
+\pard\pardeftab720
+
+\f1\fs32 \cf2 \expnd0\expndtw0\kerning0
+Tini is the most significant of the all the lab lessons covered in the\'a0Trojans\'a0module.\'a0 In this lab you\'92ll learn the basics of how a Trojan works and how Trojans operates.\cf2 \expnd0\expndtw0\kerning0
+\
+\cf2 \expnd0\expndtw0\kerning0
+Tini is a telnet utility that gives you access to the system if you can get the user to launch it.
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+Remote command Execution !!\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul Options
+\b0 \ulnone \
+\
+\
+}

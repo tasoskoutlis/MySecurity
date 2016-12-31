@@ -1,0 +1,144 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red54\green51\blue50;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww13560\viewh10680\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+This first lab\'a0in the System Hacking module highlights the benefits of using an Alternate Data Stream interrogation tool.\
+In this\'a0System Hacking \'a0lab, you will learn how to create and manipulate data files as part of your intrusion detection and validation process and how to do so in an environment you totally control.
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul Alternate Data Stream (A feature of NTFS)
+\b0 \ulnone \
+\
+Create a .txt file with some content\
+In a terminal do a \'97> notepad.exe seeme.txt\
+then a  \'97> notepad.exe seeme.txt:hidden.txt 	\'97 Hide stuff in there\
+\
+The second file doesn\'92t appear when doing a dir or ls\
+Only if you do a \'97> notepad.exe seeme.txt:hiddent.txt you will able to see the file!!\
+So only if you know the secret location and name you can find it.\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\b \ul ADS Spy Program
+\b0 \ulnone \
+\
+\pard\pardeftab720
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+This\'a0System Hacking lesson\'a0teaches you how to detect an Alternate Data Stream using some of the text files created in the previous session, plus other files/file types.\cf2 \expnd0\expndtw0\kerning0
+\
+\cf2 \expnd0\expndtw0\kerning0
+In this System Hacking lab, you will also learn how to alter and move files identified as the sources of vulnerability and how to find deliberately hidden files.
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+It can do a scan to look for Alternative Data Streams like hidden files, MD5 \'85\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 \ul \ulc0 Link Control Protocol (LCP Tool - Password Cracking)
+\b0 \ulnone \
+\
+\pard\pardeftab720
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+LCP is a password cracking tool.\'a0 In this System Hacking lesson, you\'92ll learn how to use LCP to sniff bidirectionally (sending and receiving) as part of your point-to-point protocol process.\cf2 \expnd0\expndtw0\kerning0
+\
+\cf2 \expnd0\expndtw0\kerning0
+In System Hacking, LCP can be used to perform this task both locally and remotely. \'a0This demonstration of LCP\'a0also explains the difference between a brute force attack, a hybrid attack, and a dictionary attack (which is uses specific files).
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+You just provide a host IP Address and it goes and finds the users and their passwords.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 \ul \ulc0 pwdump Program
+\b0 \ulnone \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\pard\pardeftab720
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+The pwdump utility is syntax specific, and dumps its\'a0output locally to the screen in use (from the display where it was executed).
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+PwDump3.exe Leo (Username in windows) \'97 It gives back the SAM Registry file of Windows user (Admin,User, Passwords)\
+PwDump3.exe 192.168.110.1 \'97 It gives back the SAM Registry file of every Windows user \
+\
+with >> you save it to a file\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 \ul \ulc0 x.exe Program (Privilege Escalation Tool)
+\b0 \ulnone \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\pard\pardeftab720
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+This System Hacking lab introduces x.exe, the executable files associated commonly used to inject malware. In this lab, you\'92ll learn how to create a bogus program using x.exe and how to trick that user into executing your program for unauthorized entry into the system/network. Once in the system, your bogus program escalates your privileges to \'93Admin\'94.\'a0
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+If you trick a user to execute the file, it will create a user named X and it will be added also in the Administrator access Group.\
+Of course you can use it to login as X in the System.\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 \ul \ulc0 sethC Program
+\b0 \ulnone \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\pard\pardeftab720
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+In this System Hacking lab, you\'92ll learn how to gain entry into a system without logging in, using the Windows file, sethC utility. Located in the System32 Windows directory,\'a0sethC gets access to sticky keys as you\'92re logging onto the network.\cf2 \expnd0\expndtw0\kerning0
+\
+\cf2 \expnd0\expndtw0\kerning0
+Its purpose is substitute your bogus program for the actual sticky key application and when selected, your program launches instead. For\'a0System Hacking, its essential how to analyze this process and develop preventive techniques to combat it.
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 \ul \ulc0 snow Program
+\b0 \ulnone \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\pard\pardeftab720
+
+\f0\fs32 \cf2 \expnd0\expndtw0\kerning0
+snow is a white space 
+\i \cf2 \expnd0\expndtw0\kerning0
+steganography
+\i0 \cf2 \expnd0\expndtw0\kerning0
+ tool used for \'93hiding\'94 information.\cf2 \expnd0\expndtw0\kerning0
+\
+\cf2 \expnd0\expndtw0\kerning0
+This System Hacking snow lesson takes the mystery out of how to use this particular hiding tool, how to manipulate it, and how to work it.\cf2 \expnd0\expndtw0\kerning0
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+Create a file -> notepad.exe steg.txt\
+Use -> type steg.txt to look at what the file contains\
+Then do -> snow -C -m \'93LA LA LA LA L\'94 -p \'93password\'94 steg.txt snow2.txt\
+\
+To read the secret message do -> snow -C -p \'93password\'94 snow2.txt\
+\
+\
+}

