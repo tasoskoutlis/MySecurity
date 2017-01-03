@@ -1,0 +1,13 @@
+<!DOCTYPE gpx [<!ENTITY xxe "35.460997739" > ]>
+<gpx creator="EliteGPS" version="1.0" xmlns="http://www.topografix.com/GPX/1/0">
+  <time>2014-06-07T20:04:44.453Z</time>
+  <bounds maxlat="35.461644151" maxlon="-73.562228351" minlat="35.437931663" minlon="-73.610299487">
+  <trk>
+    <trkseg>
+      <trkpt lat="&xxe;" lon="-73.568049331">
+        <ele>22.600000</ele>
+        <time>2014-06-07T18:06:16Z</time>
+        <speed>0.000000</speed>
+      </trkpt>
+   </trkseg></trk>
+</bounds></gpx>

